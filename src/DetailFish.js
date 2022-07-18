@@ -11,14 +11,14 @@ export default function DetailFish() {
   useEffect(() => {
     async function fetchSingleFish(name) {
       const data = await fetchUnoFish(name);
-      setfish(data);
+      setfish(data[0]);
     }
-    fetchSingleFish(params['Species Name']);
+    fetchSingleFish(params.name);
   }, []); 
   return (
     <div>
       <h1>{fish['Species Name']}</h1>
-      <img/>
+      <p> Cholesterol: {fish['Cholesterol']}</p>
     </div>
   );
 }

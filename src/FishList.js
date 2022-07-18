@@ -21,7 +21,7 @@ export default function FishList() {
     <div>
       {
         fishes.map((fish, i) => 
-          <Link to={`fish/:${fish['Species Name']}`} key={fish + i}>
+          <Link to={`fish/${fish['Species Name']}`} key={fish + i}>
             <p >{fish['Species Name']}</p>
             <img className="fish-pic" src={fish['Species Illustration Photo'].src}/> 
           </Link>

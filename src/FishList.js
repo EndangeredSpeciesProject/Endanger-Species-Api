@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-
 import { getAllFish } from './services/fetch-utils';
+import './App.css';
 
 export default function FishList() {
   useEffect (() => {
@@ -19,7 +19,10 @@ export default function FishList() {
     <div>
       {
         fishes.map((fish, i) => 
-          <p key={fish + i}>{fish['Species Name']}</p>
+          <div key={fish + i}>
+            <p >{fish['Species Name']}</p>
+            <img className="fish-pic" src={fish['Species Illustration Photo'].src}/> 
+          </div>
         )
       }
     </div>

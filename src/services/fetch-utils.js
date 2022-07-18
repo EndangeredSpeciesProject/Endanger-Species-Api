@@ -12,9 +12,17 @@ export async function signIn(email, password) {
   return user;
 }
 
-export async function getUser() {
+export function getUser() {
   return client.auth.user();
 }
 export async function signOut() {
   await client.auth.signOut();
 }
+
+export async function getAllFish() {
+  const rawData = await fetch(`/.netlify/functions/fish`);
+  const data = await rawData.json();
+  return data;
+}
+
+// Make function to get single fish

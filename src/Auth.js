@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { signInUser, signUpUser } from './services/fetch-utils';
+import { signIn, signUp } from './services/fetch-utils';
 //import { useDataContext } from './DataProvider';
 
 export default function AuthPage() {
@@ -20,22 +20,23 @@ export default function AuthPage() {
 
   async function handleSignUp(e) {
     e.preventDefault();
-    const user = await signUpUser(signUpEmail, signUpPass);
-    setUser(user);
+    const currentUser = await signUp(signUpEmail, signUpPass);
+    setUser(currentUser);
     clearForms();
   }
 
   async function handleSignIn(e) {
     e.preventDefault();
-    const user = await signInUser(signInEmail, signInPass);
-    setUser(user);
+    const currentUser = await signIn(signInEmail, signInPass);
+    setUser(currentUser);
     clearForms();
   }
 
   return (
     <div className="Auth">
-      <form onSubmit={handleSignUp} className="signUp">
+      <form onSubmit={(e) => handleSignUp(e)} className="signUp">
         <label>
+          <h2>Sign Up</h2> 
           E-mail:
           <input value={signUpEmail} onChange={(e) => setSignUpEmail(e.target.value)} />
         </label>
@@ -49,8 +50,9 @@ export default function AuthPage() {
         </label>
         <button className="button">sign up</button>
       </form>
-      <form onSubmit={handleSignIn} className="signIn">
+      <form onSubmit={(e) => handleSignIn(e)} className="signIn">
         <label>
+          <h2>Sign In</h2>
           E-mail:
           <input value={signInEmail} onChange={(e) => setSignInEmail(e.target.value)} />
         </label>

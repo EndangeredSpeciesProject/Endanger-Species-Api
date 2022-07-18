@@ -3,7 +3,8 @@ import {
   Switch,
   Route,
   Link
-} from "react-router-dom";
+} from 'react-router-dom';
+import Auth from './Auth';
 
 export default function App() {
   return (
@@ -32,8 +33,9 @@ export default function App() {
           <Route path="/animals">
             {/* list */}
           </Route>
-          <Route path="/">
-            {/* auth */}
+          <Route path="/">\
+          <Auth />
+            {/* auth to home list*/}
           </Route>
         </Switch>
       </div>

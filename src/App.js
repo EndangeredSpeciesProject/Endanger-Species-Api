@@ -8,6 +8,7 @@ import {
 import Auth from './Auth';
 import { useState, useEffect } from 'react';
 import { getUser, signOut } from './services/fetch-utils';
+import FishList from './FishList';
 
 
 
@@ -62,6 +63,7 @@ export default function App() {
             }
             {/* auth to home list*/}
           </Route><Route exact path="/fish">
+            <FishList />
             {/* list */}
           </Route>
           <Route exact path="/fish/:id">

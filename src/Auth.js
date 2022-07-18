@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { signInUser, signUpUser } from './services/FetchUtils';
+import { signInUser, signUpUser } from './services/fetch-utils';
 //import { useDataContext } from './DataProvider';
 
 export default function AuthPage() {

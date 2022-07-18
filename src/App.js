@@ -9,6 +9,7 @@ import Auth from './Auth';
 import { useState, useEffect } from 'react';
 import { getUser, signOut } from './services/fetch-utils';
 import FishList from './FishList';
+import DetailFish from './DetailFish';
 
 
 
@@ -66,7 +67,8 @@ export default function App() {
             <FishList />
             {/* list */}
           </Route>
-          <Route exact path="/fish/:id">
+          <Route exact path="/fish/:name">
+            <DetailFish/>
           </Route>
           <Route exact path="/credits">
 

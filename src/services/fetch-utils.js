@@ -31,4 +31,9 @@ export async function getAllFish() {
   return data;
 }
 
+export async function fetchUnoFish(name) {
+  const rawData = await fetch(`/.netlify/functions/unoFish?uno=${name}`);
+  const data = await rawData.json();
+  return data;
+}
 // Make function to get single fish

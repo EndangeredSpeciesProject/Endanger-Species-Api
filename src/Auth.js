@@ -7,7 +7,7 @@ export default function AuthPage() {
   const [signInPass, setSignInPass] = useState('');
   const [signUpEmail, setSignUpEmail] = useState('');
   const [signUpPass, setSignUpPass] = useState('');
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({}); 
   //const { setUser } = useDataContext();
   // console.log(setUser); undefined
 

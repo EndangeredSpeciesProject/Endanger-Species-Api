@@ -5,8 +5,15 @@ import {
   Link
 } from 'react-router-dom';
 import Auth from './Auth';
+import { getUser, signOut } from './services/fetch-utils';
 
 export default function App() {
+  const user = await getUser();
+
+  async function logout() {
+    await signOut();
+  }
+
   return (
     <Router>
       <div>
@@ -22,7 +29,13 @@ export default function App() {
               <Link to="/users">Users</Link>
             </li>
           </ul>
+          {
+            user ? 
+            <button onClick={logout}>Logout</button> 
+            : <> </>
+          }
         </nav>
+
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}

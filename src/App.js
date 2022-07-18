@@ -27,15 +27,20 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/about">
-            {/* credits */}
+          <Route exact path="/fish/:id">
+            
           </Route>
-          <Route path="/animals">
+          <Route exact path="/fish">
             {/* list */}
           </Route>
-          <Route path="/">\
-          <Auth />
+          <Route exact path="/">
+            {
+              user ? <p></p> : <Auth />
+            }
             {/* auth to home list*/}
+          </Route>
+          <Route exact path="/credits">
+
           </Route>
         </Switch>
       </div>

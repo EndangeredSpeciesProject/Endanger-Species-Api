@@ -1,14 +1,20 @@
 import { client } from './client';
 
+
+export async function createProfile(email) {
+  const { body } = await client.from('users').insert({ email });
+  return body;
+}
+
 export async function signUp(email, password) {
-  const { user } = await client.from('users').signUp(email, password);
-  
+  const { user } = await client.auth.signUp({ email, password });
+  await createProfile(email);
   return user;
+  
 }
 
 export async function signIn(email, password) {
-  const { user } = await client.from('users').signIn(email, password);
-  
+  const { user } = await client.auth.signIn({ email, password });
   return user;
 }
 

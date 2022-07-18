@@ -2,7 +2,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from 'react-router-dom';
 import Auth from './Auth';
 import { useState, useEffect } from 'react';
@@ -21,7 +22,7 @@ export default function App() {
       setUser(user);
     }
     checkUser();
-  }, [user]
+  }, [] 
   );
   
 
@@ -57,7 +58,7 @@ export default function App() {
         <Switch>
           <Route exact path="/">
             {
-              user ? <p></p> : <Auth />
+              user ? <Redirect to="Fish"/> : <Auth />
             }
             {/* auth to home list*/}
           </Route><Route exact path="/fish">

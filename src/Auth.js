@@ -36,6 +36,7 @@ export default function AuthPage() {
     <div className="Auth">
       <form onSubmit={(e) => handleSignUp(e)} className="signUp">
         <label>
+          <h2>Sign Up</h2> 
           E-mail:
           <input value={signUpEmail} onChange={(e) => setSignUpEmail(e.target.value)} />
         </label>
@@ -51,6 +52,7 @@ export default function AuthPage() {
       </form>
       <form onSubmit={(e) => handleSignIn(e)} className="signIn">
         <label>
+          <h2>Sign In</h2>
           E-mail:
           <input value={signInEmail} onChange={(e) => setSignInEmail(e.target.value)} />
         </label>

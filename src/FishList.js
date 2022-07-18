@@ -19,7 +19,7 @@ export default function FishList() {
     <div>
       {
         fishes.map((fish, i) => 
-          <p key={fish + i}>{fish.Sodium}</p>
+          <p key={fish + i}>{fish['Species Name']}</p>
         )
       }
     </div>

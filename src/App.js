@@ -66,7 +66,7 @@ export default function App() {
             <FishList />
             {/* list */}
           </Route>
-          <Route exact path="/fish/:id">
+          <Route exact path="/fish/:Species Name">
           </Route>
           <Route exact path="/credits">
 

@@ -9,6 +9,7 @@ import { getUser, signOut } from './services/fetch-utils';
 
 export default function App() {
   const user = await getUser();
+  // fix me
 
   async function logout() {
     await signOut();

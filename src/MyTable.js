@@ -3,7 +3,6 @@ import MaterialTable from 'material-table';
 
 
 export default function MyTable({ servingWeight, totalFats, protein, cholesterol, sodium }) {
-  console.log(servingWeight, totalFats, protein, cholesterol, sodium);
   return (
     <div style={{ maxWidth: '100%' }}>
       <MaterialTable
@@ -18,6 +17,10 @@ export default function MyTable({ servingWeight, totalFats, protein, cholesterol
         }
         data={[{ servingWeight, totalFats, protein, cholesterol, sodium }]}
         title="Nutritional Facts"
+        options={{
+          paging: false,
+          search: false,
+        }}
       
       />
     </div>

@@ -34,7 +34,7 @@ export default function DetailFish() {
       <img className="fish-pic" src={fish['Species Illustration Photo'].src}/>
       <div>Biology: {<MyComponent prop={fish.Biology}/>}</div>
       <div>Habitat: {<MyComponent prop={fish.Habitat}/>}</div>
-      <div>Nutritional facts: 
+      <div>
         <MyTable
           servingWeight={fish['Serving Weight']}
           totalFats={fish['Fat, Total']}

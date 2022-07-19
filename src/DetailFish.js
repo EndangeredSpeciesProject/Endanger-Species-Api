@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchUnoFish } from './services/fetch-utils';
+import MyTable from './MyTable';
 
 import React from 'react';
 
@@ -33,12 +34,13 @@ export default function DetailFish() {
       <img className="fish-pic" src={fish['Species Illustration Photo'].src}/>
       <div>Biology: {<MyComponent prop={fish.Biology}/>}</div>
       <div>Habitat: {<MyComponent prop={fish.Habitat}/>}</div>
-      <div>Nutritional facts: 
-        <p>Serving Weight: {fish['Serving Weight']}</p>
-        <p>Total fats: {fish['Fat, Total']}</p>
-        <p>Protein: {fish.Protein}</p>
-        <p>Cholesterol: {fish['Cholesterol']}</p>
-        <p>Sodium: {fish.Sodium}</p>
+      <div>
+        <MyTable
+          servingWeight={fish['Serving Weight']}
+          totalFats={fish['Fat, Total']}
+          protein={fish.Protein}
+          cholesterol={fish.Cholesterol}
+          sodium={fish.Sodium}/>
         <MyComponent prop={fish.Taste}/>
         <MyComponent prop={fish.Texture}/>
       </div>

@@ -46,6 +46,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  border: 3px solid red;
 }
 
 .fish-div {
@@ -56,4 +57,31 @@
   justify-content: center;
   border: 2px solid lightblue;
   margin: 3px;
+}
+
+.signIn {
+  border: 3px solid greenyellow;
+  margin: 5px;
+}
+
+.signUp {
+  border: 3px solid yellow;
+  margin: 5px;
+
+}
+
+.button {
+  border: 3px solid magenta;
+  margin: 5px;
+
+}
+
+.Auth {
+  border: 3px solid cyan;
+  margin: 5px;
+}
+
+.detailFish {
+  border: 3px solid blue;
+  /* margin: 5px; */
 }

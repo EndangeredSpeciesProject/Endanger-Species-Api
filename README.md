@@ -52,6 +52,8 @@ If you work on more than one feature at a time, you are guaranteed to multiply y
 - Is any of your state redundant? For example, if you're tracking `wins`, `losses`, and `total`, you can probably get rid of `losses` state, and calculate it as `total - wins`.
 - Where should each piece of state live? How are you going to get data from where it lives to where it needs to be?
 
+<!-- //link to credit icon makers -->
+<!-- <a target="_blank" href="https://icons8.com/icon/F0nJfK9BrwdI/top-view-fish">Top View Fish</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
 
 
 array of munged data

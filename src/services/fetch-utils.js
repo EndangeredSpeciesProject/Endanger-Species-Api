@@ -1,16 +1,16 @@
-import { client } from './client';
+import { checkError, client } from './client';
 
 
 export async function createProfile(email) {
-  const { body } = await client.from('users').insert({ email });
+  const { body } = await client.from('fish-lists').insert({ email });
   return body;
 }
+
 
 export async function signUp(email, password) {
   const { user } = await client.auth.signUp({ email, password });
   await createProfile(email);
   return user;
-  
 }
 
 export async function signIn(email, password) {
@@ -18,11 +18,16 @@ export async function signIn(email, password) {
   return user;
 }
 
-export function getUser() {
-  return client.auth.user();
+export async function addToFishList(Species) {
+  const response = await client.from('fish-lists').insert(Species);
+  return checkError(response);
+  // we might have a problem with this
 }
-export async function signOut() {
-  await client.auth.signOut();
+
+export async function getFishList(){
+  const { data } = await client.from('fish-lists')
+    .select('*');
+  return data;
 }
 
 export async function getAllFish() {
@@ -36,4 +41,15 @@ export async function fetchUnoFish(name) {
   const data = await rawData.json();
   return data;
 }
+
+export function getUser() {
+  return client.auth.user();
+}
+
+export async function signOut() {
+  await client.auth.signOut();
+}
 // Make function to get single fish
+
+
+

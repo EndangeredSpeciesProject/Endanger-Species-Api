@@ -8,6 +8,7 @@ export default function AuthPage() {
   const [signUpEmail, setSignUpEmail] = useState('');
   const [signUpPass, setSignUpPass] = useState('');
   const [user, setUser] = useState({}); 
+  
   //const { setUser } = useDataContext();
   // console.log(setUser); undefined
 
@@ -21,6 +22,7 @@ export default function AuthPage() {
   async function handleSignUp(e) {
     e.preventDefault();
     const currentUser = await signUp(signUpEmail, signUpPass);
+    console.log(currentUser);
     setUser(currentUser);
     clearForms();
   }

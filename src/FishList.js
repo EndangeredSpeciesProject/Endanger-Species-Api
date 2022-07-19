@@ -5,6 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 
 export default function FishList() {
   const params = useParams();
+  
   useEffect (() => {
 
     async function fetchFish() { const data = await getAllFish();

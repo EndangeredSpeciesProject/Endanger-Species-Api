@@ -28,7 +28,7 @@ export default function DetailFish() {
     return <div dangerouslySetInnerHTML={ createMarkup(prop) } />;
   }
   return (
-    <div>
+    <div className='detailFish'>
       <h1>{fish['Species Name']}</h1>
       <h2>{fish['Scientific Name']}</h2>
       <img className="fish-pic" src={fish['Species Illustration Photo'].src}/>
@@ -44,9 +44,9 @@ export default function DetailFish() {
         <MyComponent prop={fish.Taste}/>
         <MyComponent prop={fish.Texture}/>
       </div>
-      <div>Sustainability:
+      <div className='sus'>Sustainability:
         <p>{fish.Quote}</p>
-        <MyComponent prop={fish.Harvest}/>
+        <MyComponent className='harvest' prop={fish.Harvest}/>
       </div>
     </div>
   );

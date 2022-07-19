@@ -6,9 +6,6 @@ export async function createProfile(email) {
   return body;
 }
 
-// export async function getId(){
-
-// }
 
 export async function signUp(email, password) {
   const { user } = await client.auth.signUp({ email, password });
@@ -28,15 +25,9 @@ export async function addToFishList(Species) {
 }
 
 export async function getFishList(){
-  const response = await client.from('fish-lists').select().order('id');
-  return checkError(response);
-}
-
-export function getUser() {
-  return client.auth.user();
-}
-export async function signOut() {
-  await client.auth.signOut();
+  const { data } = await client.from('fish-lists')
+    .select('*');
+  return data;
 }
 
 export async function getAllFish() {
@@ -49,6 +40,14 @@ export async function fetchUnoFish(name) {
   const rawData = await fetch(`/.netlify/functions/unoFish?uno=${name}`);
   const data = await rawData.json();
   return data;
+}
+
+export function getUser() {
+  return client.auth.user();
+}
+
+export async function signOut() {
+  await client.auth.signOut();
 }
 // Make function to get single fish
 

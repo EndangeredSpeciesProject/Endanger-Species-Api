@@ -22,6 +22,7 @@ export default function AuthPage() {
   async function handleSignUp(e) {
     e.preventDefault();
     const currentUser = await signUp(signUpEmail, signUpPass);
+    console.log(currentUser);
     setUser(currentUser);
     clearForms();
   }

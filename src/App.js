@@ -10,7 +10,8 @@ import { useState, useEffect } from 'react';
 import { getUser, signOut } from './services/fetch-utils';
 import FishList from './FishList';
 import DetailFish from './DetailFish';
-import ProfileList from './ProfileList';
+// import ProfileList from './ProfileList';
+import ProfilePage from './ProfilePage';
 
 
 
@@ -22,8 +23,8 @@ export default function App() {
   useEffect(() => {
     
     async function checkUser() {
-      const user = await getUser();
-      setUser(user);
+      const currUser = await getUser();
+      setUser(currUser);
     }
     checkUser();
   }, [] 
@@ -32,6 +33,7 @@ export default function App() {
 
   async function logout() {
     await signOut();
+    setUser();
   }
 
   return (
@@ -51,7 +53,7 @@ export default function App() {
           </ul>
           {
             user ? 
-              <button onClick={() => logout()}>Logout</button> 
+              <button onClick={logout}>Logout</button> 
               : <> </>
           }
         </nav>
@@ -62,20 +64,27 @@ export default function App() {
         <Switch>
           <Route exact path="/">
             {
-              user ? <Redirect to="Fish"/> : <Auth />
+              user ? <Redirect to="/fish"/> : <Auth />
             }
             {/* auth to home list*/}
-          </Route><Route exact path="/fish">
-            <FishList />
+          </Route>
+          <Route exact path="/fish">
+            {
+              user ? <FishList /> : <Redirect to='/'/>
+            }
             {/* list */}
           </Route>
           <Route exact path="/fish/:name">
-            <DetailFish/>
+            {
+              user ? <DetailFish /> : <Redirect to='/'/>
+            }
           </Route>
           <Route exact path="/credits">
           </Route>
           <Route exact path="/profile-page">
-            <ProfileList/>
+            {
+              user ? <ProfilePage /> : <Redirect to='/'/>
+            }
           </Route>
         </Switch>
       </div>

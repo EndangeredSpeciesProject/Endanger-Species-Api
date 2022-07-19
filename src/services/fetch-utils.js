@@ -1,4 +1,4 @@
-import { client } from './client';
+import { checkError, client } from './client';
 
 
 export async function createProfile(email) {
@@ -10,12 +10,26 @@ export async function signUp(email, password) {
   const { user } = await client.auth.signUp({ email, password });
   await createProfile(email);
   return user;
-  
 }
 
 export async function signIn(email, password) {
   const { user } = await client.auth.signIn({ email, password });
   return user;
+}
+
+export async function addToFishList(Species) {
+  const response = await client.from('users').insert(Species);
+  return checkError(response);
+  // we might have a problem with this
+}
+
+export async function getFishList(){
+  const response = await client.from('users').select().order('id');
+  return checkError(response);
+}
+
+export async function searchFish() {
+
 }
 
 export function getUser() {
@@ -37,3 +51,5 @@ export async function fetchUnoFish(name) {
   return data;
 }
 // Make function to get single fish
+
+

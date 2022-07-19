@@ -14,7 +14,8 @@ import DetailFish from './DetailFish';
 
 
 export default function App() {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(localStorage.getItem('supabase.auth.token'));
+
   //fix me
 
   useEffect(() => {

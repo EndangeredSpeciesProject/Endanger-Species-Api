@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+.fish-pic {
+  height: 100px;
+}

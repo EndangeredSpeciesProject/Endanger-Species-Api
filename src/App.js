@@ -2,14 +2,31 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from 'react-router-dom';
 import Auth from './Auth';
+import { useState, useEffect } from 'react';
 import { getUser, signOut } from './services/fetch-utils';
+import FishList from './FishList';
+import DetailFish from './DetailFish';
+
+
 
 export default function App() {
-  const user = await getUser();
-  // fix me
+  const [user, setUser] = useState();
+  //fix me
+
+  useEffect(() => {
+    
+    async function checkUser() {
+      const user = await getUser();
+      setUser(user);
+    }
+    checkUser();
+  }, [] 
+  );
+  
 
   async function logout() {
     await signOut();
@@ -32,8 +49,8 @@ export default function App() {
           </ul>
           {
             user ? 
-            <button onClick={logout}>Logout</button> 
-            : <> </>
+              <button onClick={() => logout()}>Logout</button> 
+              : <> </>
           }
         </nav>
 
@@ -41,17 +58,17 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route exact path="/fish/:id">
-            
-          </Route>
-          <Route exact path="/fish">
-            {/* list */}
-          </Route>
           <Route exact path="/">
             {
-              user ? <p></p> : <Auth />
+              user ? <Redirect to="Fish"/> : <Auth />
             }
             {/* auth to home list*/}
+          </Route><Route exact path="/fish">
+            <FishList />
+            {/* list */}
+          </Route>
+          <Route exact path="/fish/:name">
+            <DetailFish/>
           </Route>
           <Route exact path="/credits">
 

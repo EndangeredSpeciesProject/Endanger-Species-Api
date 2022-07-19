@@ -17,16 +17,18 @@ export default function DetailFish() {
     }
     fetchSingleFish(params.name);
   }, []); 
+  
   function createMarkup(prop) {
     return { __html: prop };
   }
+  
   function MyComponent({ prop }) {
     return <div dangerouslySetInnerHTML={ createMarkup(prop) } />;
   }
   return (
     <div>
       <h1>{fish['Species Name']}</h1>
-      <img src={fish['Species Illustration Photo'].src}/>
+      {/* <img className="fish-pic" src={fish['Species Illustration Photo'].src}/> */}
       <div>Biology: {<MyComponent prop={fish.Biology}/>}</div>
       <div>Habitat: {<MyComponent prop={fish.Habitat}/>}</div>
       <div>Nutritional facts: 

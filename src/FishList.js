@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { getAllFish } from './services/fetch-utils';
 import './App.css';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function FishList() {
-  const params = useParams();
+  
   useEffect (() => {
 
     async function fetchFish() { const data = await getAllFish();

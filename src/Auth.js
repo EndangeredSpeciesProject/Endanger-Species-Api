@@ -8,6 +8,7 @@ export default function AuthPage() {
   const [signUpEmail, setSignUpEmail] = useState('');
   const [signUpPass, setSignUpPass] = useState('');
   const [user, setUser] = useState({}); 
+  
   //const { setUser } = useDataContext();
   // console.log(setUser); undefined
 
@@ -18,18 +19,22 @@ export default function AuthPage() {
     setSignUpPass('');
   }
 
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
   async function handleSignUp(e) {
     e.preventDefault();
     const currentUser = await signUp(signUpEmail, signUpPass);
     setUser(currentUser);
-    clearForms();
+    if (user) {refreshPage();} else clearForms();
   }
 
   async function handleSignIn(e) {
     e.preventDefault();
     const currentUser = await signIn(signInEmail, signInPass);
     setUser(currentUser);
-    clearForms();
+    if (user) {refreshPage();} else clearForms();
   }
 
   return (

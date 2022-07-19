@@ -1,4 +1,3 @@
-import React, { Children } from 'react';
 import MaterialTable from 'material-table';
 
 

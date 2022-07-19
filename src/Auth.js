@@ -19,24 +19,27 @@ export default function AuthPage() {
     setSignUpPass('');
   }
 
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
   async function handleSignUp(e) {
     e.preventDefault();
     const currentUser = await signUp(signUpEmail, signUpPass);
-    console.log(currentUser);
     setUser(currentUser);
-    clearForms();
+    if (user) {refreshPage();} else clearForms();
   }
 
   async function handleSignIn(e) {
     e.preventDefault();
     const currentUser = await signIn(signInEmail, signInPass);
     setUser(currentUser);
-    clearForms();
+    if (user) {refreshPage();} else clearForms();
   }
 
   return (
     <div className="Auth">
-      <form onSubmit={(e) => handleSignUp(e)} className="signUp">
+      <form onSubmit={handleSignUp} className="signUp">
         <label>
           <h2>Sign Up</h2> 
           E-mail:
@@ -52,7 +55,7 @@ export default function AuthPage() {
         </label>
         <button className="button">sign up</button>
       </form>
-      <form onSubmit={(e) => handleSignIn(e)} className="signIn">
+      <form onSubmit={handleSignIn} className="signIn">
         <label>
           <h2>Sign In</h2>
           E-mail:

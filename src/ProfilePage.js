@@ -2,7 +2,7 @@
 import { React, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ProfileList from './ProfileList';
-import { getAllFish, getFishList } from './services/fetch-utils';
+import { getFishList } from './services/fetch-utils';
 
 export default function ProfilePage() {
   const [fish, setFish] = useState([]);
@@ -10,19 +10,18 @@ export default function ProfilePage() {
   
   async function refreshFishList(){
     const myFishList = await getFishList(id);
-    console.log(myFishList);
     setFish(myFishList);
   }
 
   useEffect(() => {
     refreshFishList();
-  }, []);
+  }, []);//eslint-disable-line
 
 
   return (
     <div>ProfilePage
-      <p>My watch List</p>
-      <ProfileList fish={fish} refreshFishList={refreshFishList}/>
+      <p>My favorites</p>
+      <ProfileList fishes={fish} refreshFishList={refreshFishList}/>
     </div>
   );
 }

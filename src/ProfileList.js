@@ -1,15 +1,17 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
-import ProfilePage from './ProfilePage';
+import { Link } from 'react-router-dom';
 
-export default function ProfileList({ fish }) {
+export default function ProfileList({ fishes }) {
 
   return (
     <div> 
       {
-        fish.map((fishes, i) => <div key={fishes.Species + i}>
-          {fishes.Species}
-        </div>)
+        fishes.map((fish, i) => 
+          <Link className='fish-div' to={`fish/${fish['Species Name']}`} key={fish + i}>
+            <p >{fish['Species Name']}</p>
+            <img className="fish-pic" src={fish['Species Illustration Photo'].src}/> 
+          </Link>
+        )
       }
     </div>
   );

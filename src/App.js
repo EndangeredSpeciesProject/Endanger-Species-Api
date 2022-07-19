@@ -53,7 +53,7 @@ export default function App() {
           </ul>
           {
             user ? 
-              <button onClick={logout}>Logout</button> 
+              <button className='button' onClick={logout}>Logout</button> 
               : <> </>
           }
         </nav>

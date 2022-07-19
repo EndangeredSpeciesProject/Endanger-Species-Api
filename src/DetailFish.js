@@ -26,10 +26,13 @@ export default function DetailFish() {
   return (
     <div>
       <h1>{fish['Species Name']}</h1>
-      <p> Cholesterol: {fish['Cholesterol']}</p>
+      <img src={fish['Species Illustration Photo'].src}/>
       <div>Biology: {<MyComponent prop={fish.Biology}/>}</div>
       <div>Habitat: {<MyComponent prop={fish.Habitat}/>}</div>
-      
+      <div>Nutritional facts: 
+        <p>Cholesterol: {fish['Cholesterol']}</p>
+        <p>Serving Weight: {fish['Serving Weight']}</p>
+      </div>
     </div>
   );
 }

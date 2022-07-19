@@ -116,3 +116,9 @@
 .sustainability {
   border: 3px solid blue;
 }
+
+.auth-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

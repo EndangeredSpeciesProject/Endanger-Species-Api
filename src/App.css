@@ -38,5 +38,22 @@
 }
 
 .fish-pic {
-  height: 100px;
+  max-width: 80%;
+}
+
+.fish-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.fish-div {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid lightblue;
+  margin: 3px;
 }

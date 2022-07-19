@@ -5,8 +5,11 @@ import { fetchUnoFish } from './services/fetch-utils';
 import React from 'react';
 
 export default function DetailFish() {
+
   const params = useParams();
-  const [fish, setfish] = useState({});
+  const [fish, setfish] = useState({
+    'Species Illustration Photo': {}
+  });
     
   useEffect(() => {
     async function fetchSingleFish(name) {
@@ -15,10 +18,34 @@ export default function DetailFish() {
     }
     fetchSingleFish(params.name);
   }, []); 
+  
+  function createMarkup(prop) {
+    return { __html: prop };
+  }
+  
+  function MyComponent({ prop }) {
+    return <div dangerouslySetInnerHTML={ createMarkup(prop) } />;
+  }
   return (
     <div>
       <h1>{fish['Species Name']}</h1>
-      <p> Cholesterol: {fish['Cholesterol']}</p>
+      <h2>{fish['Scientific Name']}</h2>
+      <img className="fish-pic" src={fish['Species Illustration Photo'].src}/>
+      <div>Biology: {<MyComponent prop={fish.Biology}/>}</div>
+      <div>Habitat: {<MyComponent prop={fish.Habitat}/>}</div>
+      <div>Nutritional facts: 
+        <p>Serving Weight: {fish['Serving Weight']}</p>
+        <p>Total fats: {fish['Fat, Total']}</p>
+        <p>Protein: {fish.Protein}</p>
+        <p>Cholesterol: {fish['Cholesterol']}</p>
+        <p>Sodium: {fish.Sodium}</p>
+        <MyComponent prop={fish.Taste}/>
+        <MyComponent prop={fish.Texture}/>
+      </div>
+      <div>Sustainability:
+        <p>{fish.Quote}</p>
+        <MyComponent prop={fish.Harvest}/>
+      </div>
     </div>
   );
 }

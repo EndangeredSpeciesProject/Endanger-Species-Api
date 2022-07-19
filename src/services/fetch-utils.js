@@ -2,7 +2,7 @@ import { checkError, client } from './client';
 
 
 export async function createProfile(email) {
-  const { body } = await client.from('users').insert({ email });
+  const { body } = await client.from('fish-lists').insert({ email });
   return body;
 }
 
@@ -22,13 +22,13 @@ export async function signIn(email, password) {
 }
 
 export async function addToFishList(Species) {
-  const response = await client.from('users').insert(Species);
+  const response = await client.from('fish-lists').insert(Species);
   return checkError(response);
   // we might have a problem with this
 }
 
 export async function getFishList(){
-  const response = await client.from('users').select().order('id');
+  const response = await client.from('fish-lists').select().order('id');
   return checkError(response);
 }
 
@@ -52,5 +52,5 @@ export async function fetchUnoFish(name) {
 }
 // Make function to get single fish
 
-//
+
 

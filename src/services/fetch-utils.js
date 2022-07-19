@@ -6,6 +6,10 @@ export async function createProfile(email) {
   return body;
 }
 
+// export async function getId(){
+
+// }
+
 export async function signUp(email, password) {
   const { user } = await client.auth.signUp({ email, password });
   await createProfile(email);
@@ -28,10 +32,6 @@ export async function getFishList(){
   return checkError(response);
 }
 
-export async function searchFish() {
-
-}
-
 export function getUser() {
   return client.auth.user();
 }
@@ -52,4 +52,5 @@ export async function fetchUnoFish(name) {
 }
 // Make function to get single fish
 
+//
 

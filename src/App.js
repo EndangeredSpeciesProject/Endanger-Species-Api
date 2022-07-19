@@ -10,6 +10,7 @@ import { useState, useEffect } from 'react';
 import { getUser, signOut } from './services/fetch-utils';
 import FishList from './FishList';
 import DetailFish from './DetailFish';
+import ProfileList from './ProfileList';
 
 
 
@@ -45,7 +46,7 @@ export default function App() {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/users">Users</Link>
+              <Link to="/profile-page">Users</Link>
             </li>
           </ul>
           {
@@ -72,7 +73,9 @@ export default function App() {
             <DetailFish/>
           </Route>
           <Route exact path="/credits">
-
+          </Route>
+          <Route exact path="/profile-page">
+            <ProfileList/>
           </Route>
         </Switch>
       </div>

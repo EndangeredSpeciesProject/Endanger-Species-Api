@@ -34,7 +34,7 @@ export default function AuthPage() {
 
   return (
     <div className="Auth">
-      <form onSubmit={(e) => handleSignUp(e)} className="signUp">
+      <form onSubmit={handleSignUp} className="signUp">
         <label>
           <h2>Sign Up</h2> 
           E-mail:
@@ -50,7 +50,7 @@ export default function AuthPage() {
         </label>
         <button className="button">sign up</button>
       </form>
-      <form onSubmit={(e) => handleSignIn(e)} className="signIn">
+      <form onSubmit={handleSignIn} className="signIn">
         <label>
           <h2>Sign In</h2>
           E-mail:

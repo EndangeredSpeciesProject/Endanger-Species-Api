@@ -55,7 +55,6 @@ export default function DetailFish() {
           sodium={fish.Sodium}/>
         <MyComponent prop={fish.Taste}/>
         <MyComponent prop={fish.Texture}/>
->>>>>>> 7e7ecdef2f49aef25081e0fe7f9cb56061bffb37
       </div>
       <div className='sus'>Sustainability:
         <p>{fish.Quote}</p>

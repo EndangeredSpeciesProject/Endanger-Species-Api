@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchUnoFish } from './services/fetch-utils';
+import MyTable from './MyTable';
 
 import React from 'react';
 
@@ -31,6 +32,7 @@ export default function DetailFish() {
       <h1>{fish['Species Name']}</h1>
       <h2>{fish['Scientific Name']}</h2>
       <img className="fish-pic" src={fish['Species Illustration Photo'].src}/>
+<<<<<<< HEAD
       <div className='bio'>Biology: {<MyComponent prop={fish.Biology}/>}</div>
       <div className='habitat'>Habitat: {<MyComponent prop={fish.Habitat}/>}</div>
       <div>Nutritional facts: 
@@ -41,6 +43,19 @@ export default function DetailFish() {
         <p>Sodium: {fish.Sodium}</p>
         <MyComponent className='taste' prop={fish.Taste}/>
         <MyComponent className='texture' prop={fish.Texture}/>
+=======
+      <div>Biology: {<MyComponent prop={fish.Biology}/>}</div>
+      <div>Habitat: {<MyComponent prop={fish.Habitat}/>}</div>
+      <div>
+        <MyTable
+          servingWeight={fish['Serving Weight']}
+          totalFats={fish['Fat, Total']}
+          protein={fish.Protein}
+          cholesterol={fish.Cholesterol}
+          sodium={fish.Sodium}/>
+        <MyComponent prop={fish.Taste}/>
+        <MyComponent prop={fish.Texture}/>
+>>>>>>> 7e7ecdef2f49aef25081e0fe7f9cb56061bffb37
       </div>
       <div className='sus'>Sustainability:
         <p>{fish.Quote}</p>

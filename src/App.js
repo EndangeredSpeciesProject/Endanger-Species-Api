@@ -12,6 +12,8 @@ import FishList from './FishList';
 import DetailFish from './DetailFish';
 // import ProfileList from './ProfileList';
 import ProfilePage from './ProfilePage';
+import './App.css';
+import About from './About';
 
 
 
@@ -39,21 +41,14 @@ export default function App() {
   return (
     <Router>
       <div className='app'>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/profile-page">Users</Link>
-            </li>
-          </ul>
+        <nav className="nav-header">
+          <img className="fish-icon" src="/images/icon-logo.png" />
+          <Link className="nav-items" to="/">Home</Link>
+          <Link className="nav-items" to="/credits">Credits</Link>
+          <Link className="nav-items" to="/profile-page">My Profile</Link>
           {
             user ? 
-              <button onClick={logout}>Logout</button> 
+              <button className='button' onClick={logout}>Logout</button> 
               : <> </>
           }
         </nav>
@@ -85,6 +80,9 @@ export default function App() {
             {
               user ? <ProfilePage /> : <Redirect to='/'/>
             }
+          </Route>
+          <Route exact path="/credits">
+            <About />
           </Route>
         </Switch>
       </div>

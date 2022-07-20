@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+
 .App {
   text-align: center;
 }
@@ -6,6 +8,8 @@
   height: 40vmin;
   pointer-events: none;
 }
+
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -42,6 +46,8 @@
 }
 
 .fish-list {
+  margin: 10px;
+  height: fit-content;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -59,29 +65,139 @@
   margin: 3px;
 }
 
-.signIn {
-  border: 3px solid greenyellow;
+.signUp-signIn {
   margin: 5px;
-}
-
-.signUp {
-  border: 3px solid yellow;
-  margin: 5px;
-
 }
 
 .button {
   border: 3px solid magenta;
   margin: 5px;
+  height: 55px;
+  width: 80px;
 
 }
 
 .Auth {
-  border: 3px solid cyan;
+  border: 3px solid rgb(255, 118, 253);
   margin: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .detailFish {
   border: 3px solid blue;
   /* margin: 5px; */
+}
+
+.nav-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+}
+
+.fish-icon {
+height: 120px;
+border-radius: 5px;
+}
+
+.nav-items {
+  display: flex;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: pink;
+  margin: 10px;
+  align-items: center;
+  height: 30px;
+  width: 80%;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.header-1 {
+  border: 3px solid blue;
+}
+
+.header-2 {
+  border: 3px solid blue;
+}
+
+.bio {
+  border: 3px solid blue;
+}
+
+.habitat {
+  border: 3px solid blue;
+}
+
+.table-div {
+  border: 3px solid blue;
+}
+.table {
+  border: 3px solid blue;
+}
+
+.DSIH-data {
+  border: 3px solid blue;
+}
+
+.sustainability {
+  border: 3px solid blue;
+}
+
+.auth-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.full-logo {
+  border-radius: 5px;
+}
+
+.mission-statement {
+  text-align: center;
+  width: 550px;
+  font-size: 25px;
+}
+
+body {
+  background-color: rgb(175, 235, 255);
+}
+
+.label {
+  display: flex;
+}
+
+.auth-divs {
+  background-color: rgb(128, 128, 208);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-divs label {
+  margin: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bios-and-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px;
+  border: 3px solid red;
+}
+
+.bio-box {
+  border: 2px solid blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

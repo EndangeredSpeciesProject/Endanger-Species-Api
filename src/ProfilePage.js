@@ -2,27 +2,30 @@
 import { React, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ProfileList from './ProfileList';
-import { getAllFish, getFishList } from './services/fetch-utils';
+import { getFishList } from './services/fetch-utils';
+import Spinner from './Spinner';
 
 export default function ProfilePage() {
+  const [loading, setLoading] = useState(false);
   const [fish, setFish] = useState([]);
   const { id } = useParams(); 
   
   async function refreshFishList(){
     const myFishList = await getFishList(id);
-    console.log(myFishList);
     setFish(myFishList);
+    setLoading(false);
   }
 
   useEffect(() => {
+    setLoading(true);
     refreshFishList();
-  }, []);
+  }, []);//eslint-disable-line
 
 
   return (
     <div>ProfilePage
-      <p>My watch List</p>
-      <ProfileList fish={fish} refreshFishList={refreshFishList}/>
+      <p>My favorites</p>
+      {loading ? <Spinner /> : <ProfileList fishes={fish} refreshFishList={refreshFishList}/>}
     </div>
   );
 }

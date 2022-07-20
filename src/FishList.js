@@ -1,23 +1,26 @@
 import { useState, useEffect } from 'react';
 import { getAllFish } from './services/fetch-utils';
 import './App.css';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import Spinner from './Spinner';
 
 export default function FishList() {
-  const params = useParams();
+  const [loading, setLoading] = useState(false);
+  const [fishes, setFishes] = useState([]);
   
   useEffect (() => {
-
+    setLoading(true);
     async function fetchFish() { const data = await getAllFish();
       setFishes(data);
+      setLoading(false);
     }
     fetchFish();
   }, []);
 
 
-  const [fishes, setFishes] = useState([]);
+  
 
-  return (
+  return loading ? <Spinner /> :
     <div className='fish-list'>
       {
         fishes.map((fish, i) => 
@@ -27,6 +30,5 @@ export default function FishList() {
           </Link>
         )
       }
-    </div>
-  );
+    </div>;
 }

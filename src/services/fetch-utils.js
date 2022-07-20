@@ -24,6 +24,11 @@ export async function addToFishList(Species) {
   // we might have a problem with this
 }
 
+export async function removeFromFishList(Species) {
+  const response = await client.from('fish-lists').delete().match({ 'Species Name': Species['Species Name'] });
+  return checkError(response);
+}
+
 export async function getFishList(){
   const { data } = await client.from('fish-lists')
     .select('*');

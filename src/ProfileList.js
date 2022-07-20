@@ -8,8 +8,9 @@ export default function ProfileList({ fishes }) {
       {
         fishes.map((fish, i) => 
           <Link className='fish-div' to={`fish/${fish['Species Name']}`} key={fish + i}>
-            <p >{fish['Species Name']}</p>
-            <img className="fish-pic" src={fish['Species Illustration Photo'].src}/> 
+            <p>{fish['Species Name']}</p>
+            <img className="fish-pic" src={fish['Species Illustration Photo'].src}/>
+            <p>Eaten: {fish.eaten} {fish.eaten === 1 ? 'time' : 'times'}</p>
           </Link>
         )
       }

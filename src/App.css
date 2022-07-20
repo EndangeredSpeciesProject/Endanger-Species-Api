@@ -62,19 +62,23 @@
 }
 
 .signUp-signIn {
-  border: 3px solid rgb(245, 55, 255);
   margin: 5px;
 }
 
 .button {
   border: 3px solid magenta;
   margin: 5px;
+  height: 55px;
+  width: 80px;
 
 }
 
 .Auth {
   border: 3px solid rgb(255, 118, 253);
   margin: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .detailFish {
@@ -160,4 +164,21 @@ body {
 
 .label {
   display: flex;
+}
+
+.auth-divs {
+  background-color: rgb(128, 128, 208);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-divs label {
+  margin: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

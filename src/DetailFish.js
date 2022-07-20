@@ -65,7 +65,14 @@ export default function DetailFish() {
           totalFats={fish['Fat, Total']}
           protein={fish.Protein}
           cholesterol={fish.Cholesterol}
-          sodium={fish.Sodium}/>
+          sodium={fish.Sodium}
+          calories={fish.Calories}
+          carbohydrate={fish.Carbohydrate}
+          fiber={fish['Fiber,Total Dietary']}
+          sugar={fish['sugars.Total']}
+          
+        />
+
         <MyComponent className='DSIH-data' prop={fish.Taste}/>
         <MyComponent className='DSIH-data' prop={fish.Texture}/>
       </div>

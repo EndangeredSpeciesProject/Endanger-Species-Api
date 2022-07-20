@@ -46,35 +46,39 @@ export default function AuthPage() {
           <h3 className="mission-statement">Marine research tool that shows info about nutritional dietary info, to help who wants to know more about edible sea life.</h3>
         </div>
         <form onSubmit={handleSignUp} className="signUp-signIn">
-          <label>
-            <h2>Sign Up</h2> 
+          <div className='auth-divs'>
+            <label>
+              <h2>Sign Up</h2> 
           E-mail:
-            <input value={signUpEmail} onChange={(e) => setSignUpEmail(e.target.value)} />
-          </label>
-          <label>
+              <input value={signUpEmail} onChange={(e) => setSignUpEmail(e.target.value)} />
+            </label>
+            <label>
           Password:
-            <input
-              value={signUpPass}
-              type="password"
-              onChange={(e) => setSignUpPass(e.target.value)}
-            />
-          </label>
+              <input
+                value={signUpPass}
+                type="password"
+                onChange={(e) => setSignUpPass(e.target.value)}
+              />
+            </label>
+          </div>
           <button className="button">sign up</button>
         </form>
         <form onSubmit={handleSignIn} className="signUp-signIn">
-          <label>
-            <h2>Sign In</h2>
+          <div className='auth-divs'>
+            <label>
+              <h2>Sign In</h2>
           E-mail:
-            <input value={signInEmail} onChange={(e) => setSignInEmail(e.target.value)} />
-          </label>
-          <label>
+              <input value={signInEmail} onChange={(e) => setSignInEmail(e.target.value)} />
+            </label>
+            <label>
           Password:
-            <input
-              value={signInPass}
-              type="password"
-              onChange={(e) => setSignInPass(e.target.value)}
-            />
-          </label>
+              <input
+                value={signInPass}
+                type="password"
+                onChange={(e) => setSignInPass(e.target.value)}
+              />
+            </label>
+          </div>
           <button className="button">sign in</button>
         </form>
       </div>

@@ -41,7 +41,7 @@ export default function App() {
     <Router>
       <div className='app'>
         <nav className="nav-header">
-          <img className="fish-icon" src="./images/icon-logo.png" />
+          <img className="fish-icon" src="images/icon-logo.png" />
           <Link className="nav-items" to="/">Home</Link>
           <Link className="nav-items" to="/about">About</Link>
           <Link className="nav-items" to="/profile-page">My Profile</Link>

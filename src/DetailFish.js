@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchUnoFish, addToFishList } from './services/fetch-utils';
+import { fetchUnoFish, addToFishList, getFishList } from './services/fetch-utils';
 import MyTable from './MyTable';
+//how do we check that this fish is on the users favorites?
 
 import React from 'react';
 
 export default function DetailFish() {
-
   const params = useParams();
+  const [check, setCheck] = useState([]);
   const [fish, setfish] = useState({
     'Species Illustration Photo': {}
   });
@@ -17,23 +18,28 @@ export default function DetailFish() {
   }
     
   useEffect(() => {
+    async function checkIt() {
+      const data = await getFishList();
+      setCheck(data);
+    }
     async function fetchSingleFish(name) {
       const data = await fetchUnoFish(name);
       setfish(data[0]);
     }
     fetchSingleFish(params.name);
-  }, []);//eslint-disable-line 
+    checkIt();
+  }, [params.name]);
   
   function createMarkup(prop) {
     return { __html: prop };
   }
-  
+
   function MyComponent({ prop }) {
     return <div dangerouslySetInnerHTML={ createMarkup(prop) } />;
   }
   return (
     <div className='detailFish'>
-      <button className='button'onClick={handleAddToFavs}>Add to your favorites/watchlist</button>
+      {check.find(item => item['Scientific Name'] === fish['Scientific Name']) ? <><button>Remove</button> <button>You ate this</button></> : <button className='button'onClick={handleAddToFavs}>Add to your favorites/watchlist</button>}
       <h1 className='header-1'>{fish['Species Name']}</h1>
       <h2 className='header-2'>{fish['Scientific Name']}</h2>
       <img className="fish-pic" src={fish['Species Illustration Photo'].src}/>

@@ -35,10 +35,10 @@ export async function getFishList(){
   return data;
 }
 
-export async function getAllFish() {
+export async function getAllFish(from = 0, to = 25) {
   const rawData = await fetch(`/.netlify/functions/fish`);
   const data = await rawData.json();
-  return data;
+  return data.slice(from, to);
 }
 
 export async function fetchUnoFish(name) {

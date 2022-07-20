@@ -45,7 +45,7 @@ export default function AuthPage() {
           <img className="full-logo" src="./images/full-logo.png" />
           <h3 className="mission-statement">Marine research tool that shows info about nutritional dietary info, to help who wants to know more about edible sea life.</h3>
         </div>
-        <form onSubmit={handleSignUp} className="signUp">
+        <form onSubmit={handleSignUp} className="signUp-signIn">
           <label>
             <h2>Sign Up</h2> 
           E-mail:
@@ -61,7 +61,7 @@ export default function AuthPage() {
           </label>
           <button className="button">sign up</button>
         </form>
-        <form onSubmit={handleSignIn} className="signIn">
+        <form onSubmit={handleSignIn} className="signUp-signIn">
           <label>
             <h2>Sign In</h2>
           E-mail:

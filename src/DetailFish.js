@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchUnoFish, addToFishList, getFishList } from './services/fetch-utils';
+import { fetchUnoFish, addToFishList, removeFromFishList, getFishList } from './services/fetch-utils';
 import MyTable from './MyTable';
 //how do we check that this fish is on the users favorites?
 
@@ -12,9 +12,23 @@ export default function DetailFish() {
   const [fish, setfish] = useState({
     'Species Illustration Photo': {}
   });
+  
+  function refreshPage() {
+    window.location.reload(false);
+  }
 
   function handleAddToFavs() {
     addToFishList(fish);
+    setTimeout(() => {
+      refreshPage();
+    }, '250');
+  }
+
+  function handleRemove() {
+    removeFromFishList(fish);
+    setTimeout(() => {
+      refreshPage();
+    }, '250');
   }
     
   useEffect(() => {
@@ -39,7 +53,7 @@ export default function DetailFish() {
   }
   return (
     <div className='detailFish'>
-      {check.find(item => item['Scientific Name'] === fish['Scientific Name']) ? <><button>Remove</button> <button>You ate this</button></> : <button className='button'onClick={handleAddToFavs}>Add to your favorites/watchlist</button>}
+      {check.find(item => item['Scientific Name'] === fish['Scientific Name']) ? <><button onClick={handleRemove}>Remove</button> <button>You ate this</button></> : <button className='button'onClick={handleAddToFavs}>Add to your favorites/watchlist</button>}
       <h1 className='header-1'>{fish['Species Name']}</h1>
       <h2 className='header-2'>{fish['Scientific Name']}</h2>
       <img className="fish-pic" src={fish['Species Illustration Photo'].src}/>

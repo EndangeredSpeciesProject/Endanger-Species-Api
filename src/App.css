@@ -79,7 +79,7 @@
 }
 
 .Auth {
-  border: 3px solid cyan;
+  border: 3px solid rgb(255, 118, 253);
   margin: 5px;
 }
 
@@ -96,7 +96,8 @@
 }
 
 .fish-icon {
-height: 150px;
+height: 120px;
+border-radius: 5px;
 }
 
 .nav-items {
@@ -109,7 +110,7 @@ height: 150px;
   height: 30px;
   width: 80%;
   justify-content: center;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .header-1 {
@@ -147,4 +148,18 @@ height: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.full-logo {
+  border-radius: 5px;
+}
+
+.mission-statement {
+  text-align: center;
+  width: 550px;
+  font-size: 25px;
+}
+
+body {
+  background-color: rgb(175, 235, 255);
 }

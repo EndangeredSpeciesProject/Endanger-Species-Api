@@ -42,8 +42,8 @@ export default function AuthPage() {
     <>
       <div className="Auth">
         <div className="auth-header">
-          <h1>Title</h1>
-          <h3>Mission Statement</h3>
+          <img className="full-logo" src="./images/full-logo.png" />
+          <h3 className="mission-statement">Marine research tool that shows info about nutritional dietary info, to help who wants to know more about edible sea life.</h3>
         </div>
         <form onSubmit={handleSignUp} className="signUp">
           <label>

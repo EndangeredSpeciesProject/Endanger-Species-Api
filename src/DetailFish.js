@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchUnoFish, addToFishList, removeFromFishList, getFishList } from './services/fetch-utils';
+import { fetchUnoFish, addToFishList, removeFromFishList, getFishList, getUser } from './services/fetch-utils';
 import MyTable from './MyTable';
 import Spinner from './Spinner';
 //how do we check that this fish is on the users favorites?
@@ -11,6 +11,7 @@ export default function DetailFish() {
   const [loading, setLoading] = useState(false);
   const params = useParams();
   const [check, setCheck] = useState([]);
+  const [user, setUser] = useState({});
   const [fish, setfish] = useState({
     'Species Illustration Photo': {}
   });
@@ -32,12 +33,21 @@ export default function DetailFish() {
       refreshPage();
     }, '250');
   }
-    
+
   useEffect(() => {
     async function checkIt() {
-      const data = await getFishList();
+      const data = await getFishList(user.id);
       setCheck(data);
     }
+    if (user.id) checkIt();
+  }, [user]);
+
+  useEffect(() => {
+    async function fetchUser() {
+      const data = await getUser();
+      setUser(data);
+    }
+    fetchUser();
     async function fetchSingleFish(name) {
       setLoading(true);
       const data = await fetchUnoFish(name);
@@ -45,8 +55,7 @@ export default function DetailFish() {
       setLoading(false);
     }
     fetchSingleFish(params.name);
-    checkIt();
-  }, [params.name]);
+  }, [params.name]);//eslint-disable-line
   
   function createMarkup(prop) {
     return { __html: prop };
@@ -57,7 +66,7 @@ export default function DetailFish() {
   }
   return loading ? <Spinner /> : 
     <div className='detailFish'>
-      {check.find(item => item['Scientific Name'] === fish['Scientific Name']) ? <><button onClick={handleRemove}>Remove</button> <button>You ate this</button></> : <button className='button'onClick={handleAddToFavs}>Add to your favorites/watchlist</button>}
+      {check && check.find(item => item['Scientific Name'] === fish['Scientific Name']) ? <><button onClick={handleRemove}>Remove</button> <button>You ate this</button></> : <button className='button'onClick={handleAddToFavs}>Add to your favorites/watchlist</button>}
       <h1 className='header-1'>{fish['Species Name']}</h1>
       <h2 className='header-2'>{fish['Scientific Name']}</h2>
       <img className="fish-pic" src={fish['Species Illustration Photo'].src}/>

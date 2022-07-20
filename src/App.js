@@ -14,7 +14,7 @@ import DetailFish from './DetailFish';
 import ProfilePage from './ProfilePage';
 import './App.css';
 import About from './About';
-import ProfilesPage from './services/ProfilesPage';
+import ProfilesPage from './ProfilesPage';
 
 
 
@@ -33,7 +33,6 @@ export default function App() {
     checkUser();
   }, [] 
   );
-  
 
   async function logout() {
     await signOut();
@@ -47,7 +46,7 @@ export default function App() {
           <img className="fish-icon" src="/images/icon-logo.png" />
           <Link className="nav-items" to="/">Home</Link>
           <Link className="nav-items" to="/credits">Credits</Link>
-          <Link className="nav-items" to="/profile-page">My Profile</Link>
+          <Link className="nav-items" to={`/profile-page/${user.id}`}>My Profile</Link>
           <Link className='nav-items' to="/profiles">Friends</Link>
           {
             user ? 
@@ -79,7 +78,7 @@ export default function App() {
           </Route>
           <Route exact path="/credits">
           </Route>
-          <Route exact path="/profile-page">
+          <Route exact path="/profile-page/:id">
             {
               user ? <ProfilePage /> : <Redirect to='/'/>
             }

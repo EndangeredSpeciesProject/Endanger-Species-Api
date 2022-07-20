@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+
 .App {
   text-align: center;
 }
@@ -44,6 +46,8 @@
 }
 
 .fish-list {
+  margin: 10px;
+  height: fit-content;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

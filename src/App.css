@@ -182,3 +182,18 @@ form {
   flex-direction: column;
   align-items: center;
 }
+
+.bios-and-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px;
+  border: 3px solid red;
+}
+
+.bio-box {
+  border: 2px solid blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

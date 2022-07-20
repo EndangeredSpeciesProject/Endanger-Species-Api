@@ -56,5 +56,10 @@ export async function signOut() {
 }
 // Make function to get single fish
 
+export async function fetchProfiles() {
+  const { body } = await client.from('users').select('*');
+  return body;
+}
+
 
 

@@ -14,6 +14,7 @@ import DetailFish from './DetailFish';
 import ProfilePage from './ProfilePage';
 import './App.css';
 import About from './About';
+import ProfilesPage from './services/ProfilesPage';
 
 
 
@@ -47,6 +48,7 @@ export default function App() {
           <Link className="nav-items" to="/">Home</Link>
           <Link className="nav-items" to="/credits">Credits</Link>
           <Link className="nav-items" to="/profile-page">My Profile</Link>
+          <Link className='nav-items' to="/profiles">Friends</Link>
           {
             user ? 
               <button className='button' onClick={logout}>Logout</button> 
@@ -84,6 +86,11 @@ export default function App() {
           </Route>
           <Route exact path="/credits">
             <About />
+          </Route>
+          <Route exact path="/profiles">
+            {
+              user ? <ProfilesPage /> : <Redirect to='/'/>
+            }
           </Route>
         </Switch>
       </div>

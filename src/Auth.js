@@ -42,7 +42,7 @@ export default function AuthPage() {
     <>
       <div className="Auth">
         <div className="auth-header">
-          <img className="full-logo" src="./images/full-logo.png" />
+          <img className="full-logo" src="/images/full-logo.png" />
           <h3 className="mission-statement">Marine research tool that shows info about nutritional dietary info, to help who wants to know more about edible sea life.</h3>
         </div>
         <form onSubmit={handleSignUp} className="signUp-signIn">

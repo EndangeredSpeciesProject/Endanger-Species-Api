@@ -2,11 +2,13 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchUnoFish, addToFishList, removeFromFishList, getFishList } from './services/fetch-utils';
 import MyTable from './MyTable';
+import Spinner from './Spinner';
 //how do we check that this fish is on the users favorites?
 
 import React from 'react';
 
 export default function DetailFish() {
+  const [loading, setLoading] = useState(false);
   const params = useParams();
   const [check, setCheck] = useState([]);
   const [fish, setfish] = useState({
@@ -37,8 +39,10 @@ export default function DetailFish() {
       setCheck(data);
     }
     async function fetchSingleFish(name) {
+      setLoading(true);
       const data = await fetchUnoFish(name);
       setfish(data[0]);
+      setLoading(false);
     }
     fetchSingleFish(params.name);
     checkIt();
@@ -51,7 +55,7 @@ export default function DetailFish() {
   function MyComponent({ prop }) {
     return <div dangerouslySetInnerHTML={ createMarkup(prop) } />;
   }
-  return (
+  return loading ? <Spinner /> : 
     <div className='detailFish'>
       {check.find(item => item['Scientific Name'] === fish['Scientific Name']) ? <><button onClick={handleRemove}>Remove</button> <button>You ate this</button></> : <button className='button'onClick={handleAddToFavs}>Add to your favorites/watchlist</button>}
       <h1 className='header-1'>{fish['Species Name']}</h1>
@@ -70,7 +74,7 @@ export default function DetailFish() {
           carbohydrate={fish.Carbohydrate}
           fiber={fish['Fiber,Total Dietary']}
           sugar={fish['sugars.Total']}
-          
+        
         />
 
         <MyComponent className='DSIH-data' prop={fish.Taste}/>
@@ -80,7 +84,6 @@ export default function DetailFish() {
         <p>{fish.Quote}</p>
         <MyComponent className='DSIH-data' prop={fish.Harvest}/>
       </div>
-    </div>
-  );
+    </div>;
 }
 

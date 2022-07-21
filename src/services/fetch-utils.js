@@ -61,5 +61,19 @@ export async function fetchProfiles() {
   return body;
 }
 
+export async function addEaten(species) {
+  let eaten = await client.from('fish-lists').select('eaten')
+    .match({ user_id: getUser().id, 'Species Name': species['Species Name'] }).single();
+
+  const { data, error } = await client.from('fish-lists')
+    .update({ eaten: eaten.data.eaten + 1 })
+    .match({ user_id: getUser().id, 'Species Name': species['Species Name'] });
 
 
+  if (error) {
+    // eslint-disable-next-line no-console
+    console.error(error);
+  } else {
+    return data;
+  }
+}

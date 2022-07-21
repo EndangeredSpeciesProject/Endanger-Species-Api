@@ -203,6 +203,7 @@ form {
   background-color: white;
   border-radius: 10px;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
   height: 400px;
@@ -221,4 +222,9 @@ form {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.profile-pic {
+  width: 200px;
+  border-radius: 50%;
 }

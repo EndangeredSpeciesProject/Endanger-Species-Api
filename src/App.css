@@ -189,15 +189,36 @@ form {
 
 .bios-and-links {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 20px;
-  border: 3px solid red;
+  flex-wrap: wrap;
+  margin: 10px;
+  justify-content: center;
+  /* border: 3px solid red; */
 }
 
 .bio-box {
-  border: 2px solid blue;
+
+  padding-top: 20px;
+  margin: 10px;
+  box-shadow: 5px 5px 2px 1px rgba(0, 0, 255, 0.332);
+  background-color: white;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  height: 400px;
+  min-width: 300px;
+}
+
+.linkedin-icon {
+  width: 40px;
+}
+
+.github-icon {
+  width: 40px;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
   align-items: center;
 }

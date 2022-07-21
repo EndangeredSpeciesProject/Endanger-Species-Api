@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
-
+//eslint-disable
 export default function SimpleAccordion({ fish }) {
     
   function createMarkup(prop) {
@@ -16,6 +16,7 @@ export default function SimpleAccordion({ fish }) {
   function MyComponent({ prop }) {
     return <div dangerouslySetInnerHTML={ createMarkup(prop) } />;
   }
+  console.log(fish);
   return (
     <div>
       <Accordion>
@@ -85,7 +86,7 @@ export default function SimpleAccordion({ fish }) {
         <AccordionDetails>
           <Typography>
             <MyComponent className='DSIH-data' prop={fish.Location}/>
-            <p>NOAA Fishery locations: {fish['NOAA Fisheries Region']}</p>
+            NOAA Fishery locations: {fish['NOAA Fisheries Region']}
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -99,10 +100,8 @@ export default function SimpleAccordion({ fish }) {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            <div className='sustainability'>
-              <p>{fish.Quote}</p>
-              <MyComponent className='DSIH-data' prop={fish.Harvest}/>
-            </div>
+            {fish.Quote}
+            <MyComponent className='DSIH-data' prop={fish.Harvest}/>
           </Typography>
         </AccordionDetails>
       </Accordion>

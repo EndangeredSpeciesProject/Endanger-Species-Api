@@ -60,13 +60,6 @@ export default function DetailFish() {
     fetchSingleFish(params.name);
   }, [params.name]);//eslint-disable-line
   
-  function createMarkup(prop) {
-    return { __html: prop };
-  }
-
-  function MyComponent({ prop }) {
-    return <div dangerouslySetInnerHTML={ createMarkup(prop) } />;
-  }
 
   async function handleAddEaten() {
     await addEaten(fish);

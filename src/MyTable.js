@@ -3,7 +3,7 @@ import MaterialTable from 'material-table';
 
 export default function MyTable({ servingWeight, totalFats, protein, cholesterol, sodium, calories, carbohydrate, fiber, sugar }) {
   return (
-    <div style={{ maxWidth: '100%' }}>
+    <div className='table' style={{ maxWidth: '100%' }}>
       <MaterialTable
         columns={
           [

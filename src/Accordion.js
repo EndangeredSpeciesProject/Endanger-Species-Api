@@ -18,14 +18,14 @@ export default function SimpleAccordion({ fish }) {
   }
   
   return (
-    <div>
+    <div className='accordion'>
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Biology</Typography>
+          <Typography className='acc-head'>Biology</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <MyComponent prop={fish.Biology}/>
@@ -38,7 +38,7 @@ export default function SimpleAccordion({ fish }) {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography>Habitat</Typography>
+          <Typography className='acc-head'>Habitat</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <MyComponent prop={fish.Habitat}/>
@@ -50,7 +50,7 @@ export default function SimpleAccordion({ fish }) {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Color</Typography>
+          <Typography className='acc-head'>Color</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <MyComponent className='DSIH-data' prop={fish.Color}/>
@@ -62,7 +62,7 @@ export default function SimpleAccordion({ fish }) {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Fishery Management</Typography>
+          <Typography className='acc-head'>Fishery Management</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <MyComponent className='DSIH-data' prop={fish['Fishery Management']}/>
@@ -74,7 +74,7 @@ export default function SimpleAccordion({ fish }) {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Location</Typography>
+          <Typography className='acc-head'>Location</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <MyComponent className='DSIH-data' prop={fish.Location}/>
@@ -87,7 +87,7 @@ export default function SimpleAccordion({ fish }) {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography>Sustainability</Typography>
+          <Typography className='acc-head'>Sustainability</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <p>{fish.Quote}</p>
@@ -100,7 +100,7 @@ export default function SimpleAccordion({ fish }) {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Flavor Profile</Typography>
+          <Typography className='acc-head'>Flavor Profile</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <MyComponent className='DSIH-data' prop={fish.Taste}/>
@@ -113,7 +113,7 @@ export default function SimpleAccordion({ fish }) {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Availability</Typography>
+          <Typography className='acc-head'>Availability</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <MyComponent className='DSIH-data' prop={fish.Availability}/>

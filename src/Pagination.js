@@ -10,7 +10,7 @@ export default function Pagination({ currentPage, setCurrentPage, fishes, lastPa
     <div>
       <p>Current Page:</p>
       {fishes.map((fish, i) => 
-        <Link className='fish-div' to={`fish/${fish['Species Name']}`} key={fish + i}>
+        <Link className='fish-div' to={`/fish/${fish['Species Name']}`} key={fish + i}>
           <p >{fish['Species Name']}</p>
           <img className="fish-pic" src={fish['Species Illustration Photo'].src}/> 
         </Link>

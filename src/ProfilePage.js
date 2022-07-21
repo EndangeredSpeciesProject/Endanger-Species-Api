@@ -19,7 +19,7 @@ export default function ProfilePage() {
   useEffect(() => {
     setLoading(true);
     refreshFishList();
-  }, []);//eslint-disable-line
+  }, [id]);//eslint-disable-line
 
 
   return (

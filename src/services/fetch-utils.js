@@ -2,7 +2,7 @@ import { checkError, client } from './client';
 
 
 export async function createProfile(email) {
-  const { body } = await client.from('fish-lists').insert({ email });
+  const { body } = await client.from('profiles').insert({ email });
   return body;
 }
 
@@ -29,9 +29,9 @@ export async function removeFromFishList(Species) {
   return checkError(response);
 }
 
-export async function getFishList(){
+export async function getFishList(user_id){
   const { data } = await client.from('fish-lists')
-    .select('*');
+    .select('*').match({ user_id: user_id });
   return data;
 }
 
@@ -57,7 +57,7 @@ export async function signOut() {
 // Make function to get single fish
 
 export async function fetchProfiles() {
-  const { body } = await client.from('users').select('*');
+  const { body } = await client.from('profiles').select('*');
   return body;
 }
 

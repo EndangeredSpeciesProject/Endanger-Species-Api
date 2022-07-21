@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { fetchProfiles } from './fetch-utils';
-import Spinner from '../Spinner';
+import { fetchProfiles } from './services/fetch-utils';
+import Spinner from './Spinner';
 
 
 export default function ProfilesPage() {
@@ -10,7 +10,11 @@ export default function ProfilesPage() {
 
   useEffect(() => {
     setLoading(true);
-    setProfiles(fetchProfiles);
+    async function fetch() {
+      const data = await fetchProfiles();
+      setProfiles(data);
+    }
+    fetch();
     setLoading(false);
   }, []);
 
@@ -18,15 +22,12 @@ export default function ProfilesPage() {
     <div>
       {
         loading ? <Spinner/> : <ul>
-
-
-
           {
             profiles.map((profile) =>
               <Link key={profile.user_id}
-                to={`/favorites/${profile.user_id}`}>
+                to={`/profile-page/${profile.user_id}`}>
                 <li>{profile.email}</li>
-              </Link>     
+              </Link>  
             )
           }
         </ul>

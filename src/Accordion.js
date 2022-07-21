@@ -16,6 +16,7 @@ export default function SimpleAccordion({ fish }) {
   function MyComponent({ prop }) {
     return <div dangerouslySetInnerHTML={ createMarkup(prop) } />;
   }
+  console.log(fish);
   return (
     <div>
       <Accordion>
@@ -49,6 +50,49 @@ export default function SimpleAccordion({ fish }) {
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>Color</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <MyComponent className='DSIH-data' prop={fish.Color}/>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>Fishery Management</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <MyComponent className='DSIH-data' prop={fish['Fishery Management']}/>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>Location</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <MyComponent className='DSIH-data' prop={fish.Location}/>
+            <p>NOAA Fishery locations: {fish['NOAA Fisheries Region']}</p>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
@@ -63,13 +107,39 @@ export default function SimpleAccordion({ fish }) {
           </Typography>
         </AccordionDetails>
       </Accordion>
-
-      
-      
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>Flavor Profile</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <MyComponent className='DSIH-data' prop={fish.Taste}/>
+            <MyComponent className='DSIH-data' prop={fish.Texture}/>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>Availability</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <MyComponent className='DSIH-data' prop={fish.Availability}/>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>      
     </div>
   );
 }
-
+//more data?
 
 
 

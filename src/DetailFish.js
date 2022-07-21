@@ -94,9 +94,6 @@ export default function DetailFish() {
           sugar={fish['sugars.Total']}
         
         />
-
-        <MyComponent className='DSIH-data' prop={fish.Taste}/>
-        <MyComponent className='DSIH-data' prop={fish.Texture}/>
       </div>
       
     </div>;

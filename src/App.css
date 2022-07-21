@@ -201,3 +201,7 @@ form {
   flex-direction: column;
   align-items: center;
 }
+
+.white-content {
+  background: burlywood;
+}

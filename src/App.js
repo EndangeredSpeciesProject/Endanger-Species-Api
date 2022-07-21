@@ -6,7 +6,7 @@ import {
   Redirect
 } from 'react-router-dom';
 import Auth from './Auth';
-import { useState, useEffect } from 'react';
+import { React, useState, useEffect } from 'react';
 import { getUser, signOut } from './services/fetch-utils';
 import FishList from './FishList';
 import DetailFish from './DetailFish';
@@ -16,13 +16,20 @@ import './App.css';
 import About from './About';
 import ProfilesPage from './ProfilesPage';
 
+import ToggleDark from './'; // Make URL Directory for ToggleDark
+import { Button, Container, InputGroup } from 'reactstrap';
+import { ThemeContext, themes } from './Themes';
+
+
 
 
 
 export default function App() {
   const [user, setUser] = useState(localStorage.getItem('supabase.auth.token'));
+  const [darkMode, setDarkMode] = useState(false);
+  const [lightMode, setLightMode] = useState(true);
 
-  //fix me
+  //fix me // DO NOT PUSH AUSTIN
 
   useEffect(() => {
     
@@ -42,6 +49,32 @@ export default function App() {
   return (
     <Router>
       <div className='app'>
+
+        <div className="dark-light-button">
+          <h1 className="text-warning">Dark/Light Mode</h1>
+          <InputGroup>
+            <ThemeContext.Consumer>
+              {({ changeTheme }) => (
+                <Button 
+                  color="link"
+                  onClick={() => { if (darkMode) {
+                    setDarkMode(!darkMode);
+                    setLightMode(!lightMode);
+                    changeTheme(themes.light);
+                  } else {
+                    setLightMode(!lightMode);
+                    setDarkMode(!darkMode);
+                    changeTheme(themes.dark);
+                  }
+                  }}
+                >
+                  <span className="d-lg-none d-md-block">Switch mode</span>
+                </Button>
+              )}
+            </ThemeContext.Consumer>
+          </InputGroup>
+        </div>
+
         <nav className="nav-header">
           <img className="fish-icon" src="/images/icon-logo.png" />
           <Link className="nav-items" to="/">Home</Link>

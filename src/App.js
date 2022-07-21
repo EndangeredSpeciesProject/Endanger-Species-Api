@@ -46,7 +46,9 @@ export default function App() {
           <img className="fish-icon" src="/images/icon-logo.png" />
           <Link className="nav-items" to="/">Home</Link>
           <Link className="nav-items" to="/credits">Credits</Link>
-          <Link className="nav-items" to={`/profile-page/${user.id}`}>My Profile</Link>
+          { user ? 
+            <Link className="nav-items" to={`/profile-page/${user.id}`}>My Profile</Link> : <> </>
+          }
           <Link className='nav-items' to="/profiles">Friends</Link>
           {
             user ? 

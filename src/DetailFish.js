@@ -60,13 +60,6 @@ export default function DetailFish() {
     fetchSingleFish(params.name);
   }, [params.name]);//eslint-disable-line
   
-  function createMarkup(prop) {
-    return { __html: prop };
-  }
-
-  function MyComponent({ prop }) {
-    return <div dangerouslySetInnerHTML={ createMarkup(prop) } />;
-  }
 
   async function handleAddEaten() {
     await addEaten(fish);
@@ -94,9 +87,6 @@ export default function DetailFish() {
           sugar={fish['sugars.Total']}
         
         />
-
-        <MyComponent className='DSIH-data' prop={fish.Taste}/>
-        <MyComponent className='DSIH-data' prop={fish.Texture}/>
       </div>
       
     </div>;

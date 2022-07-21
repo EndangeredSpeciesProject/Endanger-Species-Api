@@ -6,7 +6,7 @@ import {
   Redirect
 } from 'react-router-dom';
 import Auth from './Auth';
-import { useState, useEffect } from 'react';
+import { React, useState, useEffect } from 'react';
 import { getUser, signOut } from './services/fetch-utils';
 import FishList from './FishList';
 import DetailFish from './DetailFish';
@@ -17,12 +17,8 @@ import About from './About';
 import ProfilesPage from './ProfilesPage';
 
 
-
-
 export default function App() {
   const [user, setUser] = useState(localStorage.getItem('supabase.auth.token'));
-
-  //fix me
 
   useEffect(() => {
     
@@ -42,14 +38,13 @@ export default function App() {
   return (
     <Router>
       <div className='app'>
+
         <nav className="nav-header">
           <img className="fish-icon" src="/images/icon-logo.png" />
           <Link className="nav-items" to="/">Home</Link>
-          <Link className="nav-items" to="/credits">Credits</Link>
-          { user ? 
-            <Link className="nav-items" to={`/profile-page/${user.id}`}>My Profile</Link> : <> </>
-          }
+          <Link className="nav-items" to={`/profile-page/${user.id}`}>My Profile</Link>
           <Link className='nav-items' to="/profiles">Friends</Link>
+          <Link className="nav-items" to="/credits">Contact us</Link>
           {
             user ? 
               <button className='button' onClick={logout}>Logout</button> 
@@ -78,15 +73,15 @@ export default function App() {
               user ? <DetailFish /> : <Redirect to='/'/>
             }
           </Route>
-          <Route exact path="/credits">
-          </Route>
           <Route exact path="/profile-page/:id">
             {
               user ? <ProfilePage /> : <Redirect to='/'/>
             }
           </Route>
           <Route exact path="/credits">
-            <About />
+            {
+              user ? <About /> : <Redirect to='/'/>
+            }
           </Route>
           <Route exact path="/profiles">
             {

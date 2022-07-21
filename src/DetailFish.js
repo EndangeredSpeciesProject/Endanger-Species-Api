@@ -69,6 +69,7 @@ export default function DetailFish() {
 
   async function handleAddEaten() {
     await addEaten(fish);
+
   }
 
   return loading ? <Spinner /> : 

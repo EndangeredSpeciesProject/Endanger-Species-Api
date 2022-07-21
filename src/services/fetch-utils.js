@@ -64,7 +64,6 @@ export async function fetchProfiles() {
 export async function addEaten(species) {
   let eaten = await client.from('fish-lists').select('eaten')
     .match({ user_id: getUser().id, 'Species Name': species['Species Name'] }).single();
-  console.log(eaten);
 
   const { data, error } = await client.from('fish-lists')
     .update({ eaten: eaten.data.eaten + 1 })

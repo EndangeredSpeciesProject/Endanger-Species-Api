@@ -75,7 +75,7 @@ export default function DetailFish() {
 
   return loading ? <Spinner /> : 
     <div className='detailFish'>
-      {check && check.find(item => item['Scientific Name'] === fish['Scientific Name']) ? <><button onClick={handleRemove}>Remove</button> <button onClick={handleAddEaten}>You ate this</button></> : <button className='button'onClick={handleAddToFavs}>Add to your favorites/watchlist</button>}
+      {check && check.find(item => item['Scientific Name'] === fish['Scientific Name']) ? <div className='buttonz'><button className='button' onClick={handleRemove}>Remove</button> <button className='button' onClick={handleAddEaten}>You ate this</button></div> : <button className='button'onClick={handleAddToFavs}>Add to your favorites/watchlist</button>}
       <h1 className='header-1'>{fish['Species Name']}</h1>
       <h2 className='header-2'>{fish['Scientific Name']}</h2>
       <img className="fish-pic" src={fish['Species Illustration Photo'].src}/>

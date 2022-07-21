@@ -47,46 +47,74 @@
 
 .fish-list {
   margin: 10px;
-  height: fit-content;
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  border: 3px solid red;
 }
 
 .fish-div {
   width: 300px;
   display: flex;
+  /* flex-wrap: wrap; */
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 2px solid lightblue;
-  margin: 3px;
+  border: 2px solid #f1ece6;
+  margin: 15px;
+  -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 0px 23px 15px 5px rgba(0,0,0,0); 
+  box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 0px 23px 15px 5px rgba(0,0,0,0);
+  
+
+}
+
+.pescado {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
 }
 
 .signUp-signIn {
   margin: 5px;
 }
 
+h3 {
+  font-family: Chewy;
+}
+
 .button {
-  border: 3px solid magenta;
+  border: 3px solid;
   margin: 5px;
   height: 55px;
-  width: 80px;
+  width: fit-content;
+  border-radius: 10px;
+  background-color: #f6a626;
 
 }
 
+.buttonz {
+  display: flex;
+  justify-content: center;
+}
+
 .Auth {
-  border: 3px solid rgb(255, 118, 253);
   margin: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.auth-divs{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-family: Chewy;
+
+}
+
 .detailFish {
-  border: 3px solid blue;
+  text-align: center;
   /* margin: 5px; */
 }
 
@@ -94,19 +122,22 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  font-family: Chewy;
+
   
 }
 
 .fish-icon {
 height: 120px;
-border-radius: 5px;
+padding: 10px;
+border-radius: 20px;
 }
 
 .nav-items {
   display: flex;
   font-size: 20px;
   font-weight: bold;
-  background-color: pink;
+  background-color: #8B8972;
   margin: 10px;
   align-items: center;
   height: 30px;
@@ -116,11 +147,22 @@ border-radius: 5px;
 }
 
 .header-1 {
-  border: 3px solid blue;
+  /* border: 3px solid green; */
+  font-family: Chewy;
+  color: #f6a626;
+  font-size: 40px;
+  text-decoration: solid;
+  text-decoration-color: #8B8972;
+  text-decoration-thickness: 10px;
+
 }
 
 .header-2 {
-  border: 3px solid blue;
+  /* border: 3px solid pink; */
+  font-family: Chewy;
+  color: #f6a626;
+  font-size: 30px;
+
 }
 
 .bio {
@@ -128,15 +170,13 @@ border-radius: 5px;
 }
 
 .habitat {
-  border: 3px solid blue;
+  border: 3px solid cyan;
 }
 
 .table-div {
-  border: 3px solid blue;
+  border: 3px solid lightblue;
 }
-.table {
-  border: 3px solid blue;
-}
+
 
 .DSIH-data {
   border: 3px solid blue;
@@ -153,7 +193,7 @@ border-radius: 5px;
 }
 
 .full-logo {
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .mission-statement {
@@ -175,7 +215,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 10px;
 }
+
+
 
 .auth-divs label {
   margin: 10px;

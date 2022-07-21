@@ -24,11 +24,11 @@ export default function MyTable({ servingWeight, totalFats, protein, cholesterol
           paging: false,
           search: false,
           headerStyle: {
-            background: 'slateblue',
-            border: '5px solid lightBlue'
+            background: '#8B8972',
+            border: '5px solid #F1ECE6'
           },
           rowStyle: {
-            background: 'pink',
+            background: '#D99326',
             color: 'black'
           }
         }}

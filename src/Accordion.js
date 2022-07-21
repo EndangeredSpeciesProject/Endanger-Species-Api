@@ -16,6 +16,7 @@ export default function SimpleAccordion({ fish }) {
   function MyComponent({ prop }) {
     return <div dangerouslySetInnerHTML={ createMarkup(prop) } />;
   }
+  
   return (
     <div>
       <Accordion>

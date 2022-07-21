@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
-
+//eslint-disable
 export default function SimpleAccordion({ fish }) {
     
   function createMarkup(prop) {
@@ -14,7 +14,7 @@ export default function SimpleAccordion({ fish }) {
   }
 
   function MyComponent({ prop }) {
-    return <div dangerouslySetInnerHTML={ createMarkup(prop) } />;
+    return <div dangerouslySetInnerHTML={ createMarkup(prop) } />;//eslint-disable-line
   }
   return (
     <div>
@@ -27,9 +27,8 @@ export default function SimpleAccordion({ fish }) {
           <Typography>Biology</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            <MyComponent prop={fish.Biology}/>
-          </Typography>
+          <MyComponent prop={fish.Biology}/>
+          
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -41,9 +40,44 @@ export default function SimpleAccordion({ fish }) {
           <Typography>Habitat</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            <MyComponent prop={fish.Habitat}/>
-          </Typography>
+          <MyComponent prop={fish.Habitat}/>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>Color</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <MyComponent className='DSIH-data' prop={fish.Color}/>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>Fishery Management</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <MyComponent className='DSIH-data' prop={fish['Fishery Management']}/>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>Location</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <MyComponent className='DSIH-data' prop={fish.Location}/>
+          <p>NOAA Fishery locations: {fish['NOAA Fisheries Region']}</p>
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -55,21 +89,39 @@ export default function SimpleAccordion({ fish }) {
           <Typography>Sustainability</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            <div className='sustainability'>
-              <p>{fish.Quote}</p>
-              <MyComponent className='DSIH-data' prop={fish.Harvest}/>
-            </div>
-          </Typography>
+          <p>{fish.Quote}</p>
+          <MyComponent className='DSIH-data' prop={fish.Harvest}/>
         </AccordionDetails>
       </Accordion>
-
-      
-      
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>Flavor Profile</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <MyComponent className='DSIH-data' prop={fish.Taste}/>
+          <MyComponent className='DSIH-data' prop={fish.Texture}/>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>Availability</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <MyComponent className='DSIH-data' prop={fish.Availability}/>
+        </AccordionDetails>
+      </Accordion>      
     </div>
   );
 }
-
+//more data?
 
 
 

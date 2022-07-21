@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { fetchUnoFish, addToFishList, removeFromFishList, getFishList, getUser } from './services/fetch-utils';
 import MyTable from './MyTable';
 import Spinner from './Spinner';
+import Accordion from './Accordion';
 
 import { addEaten } from './services/fetch-utils';
 //how do we check that this fish is on the users favorites?
@@ -78,8 +79,8 @@ export default function DetailFish() {
       <h1 className='header-1'>{fish['Species Name']}</h1>
       <h2 className='header-2'>{fish['Scientific Name']}</h2>
       <img className="fish-pic" src={fish['Species Illustration Photo'].src}/>
-      <div className='bio'>Biology: {<MyComponent prop={fish.Biology}/>}</div>
-      <div className='habitat'>Habitat: {<MyComponent prop={fish.Habitat}/>}</div>
+      <Accordion fish={fish}/>
+
       <div className='table-div'>
         <MyTable className='table'
           servingWeight={fish['Serving Weight']}
@@ -97,10 +98,7 @@ export default function DetailFish() {
         <MyComponent className='DSIH-data' prop={fish.Taste}/>
         <MyComponent className='DSIH-data' prop={fish.Texture}/>
       </div>
-      <div className='sustainability'>Sustainability:
-        <p>{fish.Quote}</p>
-        <MyComponent className='DSIH-data' prop={fish.Harvest}/>
-      </div>
+      
     </div>;
 }
 

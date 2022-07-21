@@ -4,6 +4,8 @@ import { fetchUnoFish, addToFishList, removeFromFishList, getFishList, getUser }
 import MyTable from './MyTable';
 import Spinner from './Spinner';
 import Accordion from './Accordion';
+
+import { addEaten } from './services/fetch-utils';
 //how do we check that this fish is on the users favorites?
 
 import React from 'react';
@@ -65,9 +67,15 @@ export default function DetailFish() {
   function MyComponent({ prop }) {
     return <div dangerouslySetInnerHTML={ createMarkup(prop) } />;
   }
+
+  async function handleAddEaten() {
+    await addEaten(fish);
+
+  }
+
   return loading ? <Spinner /> : 
     <div className='detailFish'>
-      {check && check.find(item => item['Scientific Name'] === fish['Scientific Name']) ? <><button onClick={handleRemove}>Remove</button> <button>You ate this</button></> : <button className='button'onClick={handleAddToFavs}>Add to your favorites/watchlist</button>}
+      {check && check.find(item => item['Scientific Name'] === fish['Scientific Name']) ? <><button onClick={handleRemove}>Remove</button> <button onClick={handleAddEaten}>You ate this</button></> : <button className='button'onClick={handleAddToFavs}>Add to your favorites/watchlist</button>}
       <h1 className='header-1'>{fish['Species Name']}</h1>
       <h2 className='header-2'>{fish['Scientific Name']}</h2>
       <img className="fish-pic" src={fish['Species Illustration Photo'].src}/>

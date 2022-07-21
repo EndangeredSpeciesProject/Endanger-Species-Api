@@ -4,7 +4,7 @@ export default function About() {
   return (
     <div className="bios-and-links">
       <div className="bio-box">
-        <img src="/images/icon-logo.png" />
+        <img src="/images/pedro.jpeg" />
         <h3>Pedro Chavez-Nolasco</h3>
         <h4>One sentence text for Pedro</h4>
         <div className="icons">
@@ -13,7 +13,7 @@ export default function About() {
         </div>
       </div>
       <div className="bio-box">
-        <img src="/images/icon-logo.png" />
+        <img src="/images/austin/.jpeg" />
         <h3>Austin Han</h3>
         <h4>One sentence text for Austin</h4>
         <div className="icons">
@@ -22,7 +22,7 @@ export default function About() {
         </div>
       </div>
       <div className="bio-box">
-        <img src="/images/icon-logo.png" />
+        <img src="/images/amanda/.jpeg" />
         <h3>Amanda Hecht</h3>
         <h4>One sentence text for Amanda</h4>
         <div className="icons">
@@ -32,7 +32,7 @@ export default function About() {
       </div>
 
       <div className="bio-box">
-        <img src="/images/icon-logo.png" />
+        <img src="/images/chad/.jpeg" />
         <h3>Chad Stabler</h3>
         <h4>One sentence text for Chad</h4>
         <div className="icons">

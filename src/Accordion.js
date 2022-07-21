@@ -14,7 +14,7 @@ export default function SimpleAccordion({ fish }) {
   }
 
   function MyComponent({ prop }) {
-    return <div dangerouslySetInnerHTML={ createMarkup(prop) } />;
+    return <div dangerouslySetInnerHTML={ createMarkup(prop) } />;//eslint-disable-line
   }
   console.log(fish);
   return (
@@ -28,9 +28,8 @@ export default function SimpleAccordion({ fish }) {
           <Typography>Biology</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            <MyComponent prop={fish.Biology}/>
-          </Typography>
+          <MyComponent prop={fish.Biology}/>
+          
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -42,9 +41,7 @@ export default function SimpleAccordion({ fish }) {
           <Typography>Habitat</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            <MyComponent prop={fish.Habitat}/>
-          </Typography>
+          <MyComponent prop={fish.Habitat}/>
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -56,9 +53,7 @@ export default function SimpleAccordion({ fish }) {
           <Typography>Color</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            <MyComponent className='DSIH-data' prop={fish.Color}/>
-          </Typography>
+          <MyComponent className='DSIH-data' prop={fish.Color}/>
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -70,9 +65,7 @@ export default function SimpleAccordion({ fish }) {
           <Typography>Fishery Management</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            <MyComponent className='DSIH-data' prop={fish['Fishery Management']}/>
-          </Typography>
+          <MyComponent className='DSIH-data' prop={fish['Fishery Management']}/>
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -84,10 +77,8 @@ export default function SimpleAccordion({ fish }) {
           <Typography>Location</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            <MyComponent className='DSIH-data' prop={fish.Location}/>
-            NOAA Fishery locations: {fish['NOAA Fisheries Region']}
-          </Typography>
+          <MyComponent className='DSIH-data' prop={fish.Location}/>
+          <p>NOAA Fishery locations: {fish['NOAA Fisheries Region']}</p>
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -99,10 +90,8 @@ export default function SimpleAccordion({ fish }) {
           <Typography>Sustainability</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            {fish.Quote}
-            <MyComponent className='DSIH-data' prop={fish.Harvest}/>
-          </Typography>
+          <p>{fish.Quote}</p>
+          <MyComponent className='DSIH-data' prop={fish.Harvest}/>
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -114,10 +103,8 @@ export default function SimpleAccordion({ fish }) {
           <Typography>Flavor Profile</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            <MyComponent className='DSIH-data' prop={fish.Taste}/>
-            <MyComponent className='DSIH-data' prop={fish.Texture}/>
-          </Typography>
+          <MyComponent className='DSIH-data' prop={fish.Taste}/>
+          <MyComponent className='DSIH-data' prop={fish.Texture}/>
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -129,9 +116,7 @@ export default function SimpleAccordion({ fish }) {
           <Typography>Availability</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            <MyComponent className='DSIH-data' prop={fish.Availability}/>
-          </Typography>
+          <MyComponent className='DSIH-data' prop={fish.Availability}/>
         </AccordionDetails>
       </Accordion>      
     </div>

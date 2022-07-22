@@ -4,17 +4,15 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+Footer {
+  height: 25px;
 }
 
-
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.gif {
+  border-bottom-left-radius: 30%;
+  border-top-right-radius: 30%;
+  border: 15px solid #f6a626;
+  
 }
 
 .App-header {
@@ -47,46 +45,74 @@
 
 .fish-list {
   margin: 10px;
-  height: fit-content;
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  border: 3px solid red;
 }
 
 .fish-div {
   width: 300px;
   display: flex;
+  /* flex-wrap: wrap; */
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 2px solid lightblue;
-  margin: 3px;
+  border: 2px solid #f1ece6;
+  margin: 15px;
+  -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 0px 23px 15px 5px rgba(0,0,0,0); 
+  box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 0px 23px 15px 5px rgba(0,0,0,0);
+  
+
+}
+
+.pescado {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
 }
 
 .signUp-signIn {
   margin: 5px;
 }
 
+h3 {
+  font-family: Chewy;
+}
+
 .button {
-  border: 3px solid magenta;
+  border: 3px solid #8B8972;
   margin: 5px;
   height: 55px;
-  width: 80px;
+  width: fit-content;
+  border-radius: 10px;
+  background-color: #f6a626;
 
 }
 
+.buttonz {
+  display: flex;
+  justify-content: center;
+}
+
 .Auth {
-  border: 3px solid rgb(255, 118, 253);
   margin: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.auth-divs{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-family: Chewy;
+
+}
+
 .detailFish {
-  border: 3px solid blue;
+  text-align: center;
   /* margin: 5px; */
 }
 
@@ -94,48 +120,69 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  font-family: Chewy;
+
   
 }
 
 .fish-icon {
 height: 120px;
-border-radius: 5px;
+padding: 10px;
+border-radius: 20px;
 }
 
 .nav-items {
   display: flex;
   font-size: 20px;
   font-weight: bold;
-  background-color: pink;
+  background-color: #8B8972;
   margin: 10px;
   align-items: center;
   height: 30px;
   width: 80%;
   justify-content: center;
   border-radius: 5px;
+  border: 3px solid #f1ece6;
 }
 
 .header-1 {
-  border: 3px solid blue;
+  /* border: 3px solid green; */
+  font-family: Chewy;
+  color: #f6a626;
+  font-size: 40px;
+  text-decoration: solid;
+  text-decoration-color: #8B8972;
+  text-decoration-thickness: 10px;
+
 }
 
 .header-2 {
-  border: 3px solid blue;
+  /* border: 3px solid pink; */
+  font-family: Chewy;
+  color: #f6a626;
+  font-size: 30px;
+
 }
+
+.acc-head {
+  font-size: 60px;
+  color: #f6a626;
+}
+
 
 .bio {
   border: 3px solid blue;
 }
 
 .habitat {
-  border: 3px solid blue;
+  border: 3px solid cyan;
 }
 
 .table-div {
-  border: 3px solid blue;
+  border: 3px solid lightblue;
 }
-.table {
-  border: 3px solid blue;
+.accordion{
+  font-size: 20px;
 }
 
 .DSIH-data {
@@ -153,7 +200,7 @@ border-radius: 5px;
 }
 
 .full-logo {
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .mission-statement {
@@ -175,7 +222,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 10px;
 }
+
+
 
 .auth-divs label {
   margin: 10px;
@@ -189,15 +239,42 @@ form {
 
 .bios-and-links {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 20px;
-  border: 3px solid red;
+  flex-wrap: wrap;
+  margin: 10px;
+  justify-content: center;
+  /* border: 3px solid red; */
 }
 
 .bio-box {
-  border: 2px solid blue;
+
+  padding-top: 20px;
+  margin: 10px;
+  box-shadow: 5px 5px 2px 1px rgba(0, 0, 255, 0.332);
+  background-color: white;
+  border-radius: 10px;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
+  height: 400px;
+  min-width: 300px;
+}
+
+.linkedin-icon {
+  width: 40px;
+}
+
+.github-icon {
+  width: 40px;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 200px;
+  border-radius: 50%;
 }

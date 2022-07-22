@@ -4,6 +4,7 @@ import { fetchUnoFish, addToFishList, removeFromFishList, getFishList, getUser }
 import MyTable from './MyTable';
 import Spinner from './Spinner';
 import Accordion from './Accordion';
+import SimplePopover from './Popover';
 
 import { addEaten } from './services/fetch-utils';
 //how do we check that this fish is on the users favorites?
@@ -18,6 +19,7 @@ export default function DetailFish() {
   const [fish, setfish] = useState({
     'Species Illustration Photo': {}
   });
+  
   
   function refreshPage() {
     window.location.reload(false);
@@ -44,6 +46,7 @@ export default function DetailFish() {
     }
     if (user.id) checkIt();
   }, [user]);
+  
 
   useEffect(() => {
     async function fetchUser() {
@@ -68,7 +71,7 @@ export default function DetailFish() {
 
   return loading ? <Spinner /> : 
     <div className='detailFish'>
-      {check && check.find(item => item['Scientific Name'] === fish['Scientific Name']) ? <div className='buttonz'><button className='button' onClick={handleRemove}>Remove</button> <button className='button' onClick={handleAddEaten}>You ate this</button></div> : <button className='button'onClick={handleAddToFavs}>Add to your favorites/watchlist</button>}
+      {check && check.find(item => item['Scientific Name'] === fish['Scientific Name']) ? <div className='buttonz'><button className='button' onClick={handleRemove}>Remove</button> <SimplePopover handleAdd={handleAddEaten}/></div> : <button className='button'onClick={handleAddToFavs}>Add to your favorites/watchlist</button>}
       <h1 className='header-1'>{fish['Species Name']}</h1>
       <h2 className='header-2'>{fish['Scientific Name']}</h2>
       <img className="fish-pic" src={fish['Species Illustration Photo'].src}/>

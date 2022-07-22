@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchUnoFish, addToFishList, removeFromFishList, getFishList, getUser } from './services/fetch-utils';
 import MyTable from './MyTable';

@@ -4,17 +4,15 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+Footer {
+  height: 25px;
 }
 
-
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.gif {
+  border-bottom-left-radius: 30%;
+  border-top-right-radius: 30%;
+  border: 15px solid #f6a626;
+  
 }
 
 .App-header {
@@ -84,7 +82,7 @@ h3 {
 }
 
 .button {
-  border: 3px solid;
+  border: 3px solid #8B8972;
   margin: 5px;
   height: 55px;
   width: fit-content;
@@ -144,6 +142,7 @@ border-radius: 20px;
   width: 80%;
   justify-content: center;
   border-radius: 5px;
+  border: 3px solid #f1ece6;
 }
 
 .header-1 {

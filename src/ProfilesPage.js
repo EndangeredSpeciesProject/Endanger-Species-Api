@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { fetchProfiles } from './services/fetch-utils';
 import Spinner from './Spinner';
 
-
 export default function ProfilesPage() {
   const [profiles, setProfiles] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -18,8 +17,9 @@ export default function ProfilesPage() {
     setLoading(false);
   }, []);
 
+
   return (
-    <div>
+    <div className='friends'>
       {
         loading ? <Spinner/> : <ul>
           {

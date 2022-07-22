@@ -88,7 +88,7 @@ export default function DetailFish() {
         
         />
       </div>
-      
+      <footer></footer>
     </div>;
 }
 

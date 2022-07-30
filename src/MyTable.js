@@ -1,7 +1,7 @@
 import MaterialTable from 'material-table';
 
 
-export default function MyTable({ servingWeight, totalFats, protein, cholesterol, sodium, calories, carbohydrate, fiber, sugar }) {
+export default function MyTable(props) {
   return (
     <div className='table' style={{ maxWidth: '100%' }}>
       <MaterialTable
@@ -18,7 +18,8 @@ export default function MyTable({ servingWeight, totalFats, protein, cholesterol
             { title: 'Fiber', field: 'fiber' },
           ]
         }
-        data={[{ servingWeight, totalFats, protein, cholesterol, sodium, carbohydrate, fiber, sugar, calories }]}
+        // seems like if we're just passing all the data down in an object with all the props, we can just use the props object without destructuring it. we only need to destructure if we need access to each individual part to do something different with it.
+        data={[props]}
         title="Nutritional Facts"
         options={{
           paging: false,

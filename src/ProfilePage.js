@@ -25,7 +25,9 @@ export default function ProfilePage() {
   return (
     <div>ProfilePage
       <p>My favorites</p>
-      {loading ? <Spinner /> : <ProfileList fishes={fish} refreshFishList={refreshFishList}/>}
+      {loading 
+        ? <Spinner /> 
+        : <ProfileList fishes={fish} refreshFishList={refreshFishList}/>}
     </div>
   );
 }

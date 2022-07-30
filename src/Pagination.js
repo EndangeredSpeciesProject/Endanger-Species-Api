@@ -12,7 +12,6 @@ export default function Pagination({ currentPage, setCurrentPage, fishes, lastPa
         <button className='button' disabled={ currentPage >= lastPage } onClick={() => setCurrentPage(currentPage + 1)}>Next Page</button>
       </div> 
       <div className='pescado'>
-        {/* <p>:</p> */}
         {fishes.map((fish, i) => 
           <Link className='fish-div' to={`/fish/${fish['Species Name']}`} key={fish + i}>
             <p >{fish['Species Name']}</p>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
@@ -12,19 +12,20 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SimplePopover({ handleAdd }) {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
     handleAdd();
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  // for a one-liner, you can restate the arrow function without the curlies:
+  const handleClose = () => setAnchorEl(null);
+  
 
   const open = Boolean(anchorEl);
-  const id = open ? 'simple-popover' : undefined;
+  // seems like this would do the same thing, so long as false works the same as undefined in the Popover mui component
+  const id = open && 'simple-popover';
 
   return (
     <div>

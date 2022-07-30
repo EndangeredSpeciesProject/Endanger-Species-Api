@@ -25,6 +25,8 @@ export default function DetailFish() {
     window.location.reload(false);
   }
 
+  /* i'd like to see this handled in another way. it seems to me you just want to fetch the fish again whenever the favorites are updated? you could achieve that by putting the favorites in the dependency array on line 65. forcing a reload to force a behavior is an anti-pattern in react that can usually be solved by adding something to the dependency array
+  */
   function handleAddToFavs() {
     addToFishList(fish);
     setTimeout(() => {
@@ -69,14 +71,26 @@ export default function DetailFish() {
 
   }
 
+  const itExists = check && check.find(item => item['Scientific Name'] === fish['Scientific Name']);
+
   return loading ? <Spinner /> : 
     <div className='detailFish'>
-      {check && check.find(item => item['Scientific Name'] === fish['Scientific Name']) ? <div className='buttonz'><button className='button' onClick={handleRemove}>Remove</button> <SimplePopover handleAdd={handleAddEaten}/></div> : <button className='button'onClick={handleAddToFavs}>Add to your favorites/watchlist</button>}
+      {itExists 
+        ? <div className='buttonz'>
+            <button className='button' onClick={handleRemove}>
+              Remove
+            </button>
+            <SimplePopover handleAdd={handleAddEaten}/>
+          </div> 
+        : <button className='button'onClick={handleAddToFavs}>
+            Add to your favorites/watchlist
+          </button>
+      }
       <h1 className='header-1'>{fish['Species Name']}</h1>
       <h2 className='header-2'>{fish['Scientific Name']}</h2>
       <img className="fish-pic" src={fish['Species Illustration Photo'].src}/>
       <Accordion fish={fish}/>
-
+      
       <div className='table-div'>
         <MyTable className='table'
           servingWeight={fish['Serving Weight']}
@@ -87,7 +101,7 @@ export default function DetailFish() {
           calories={fish.Calories}
           carbohydrate={fish.Carbohydrate}
           fiber={fish['Fiber,Total Dietary']}
-          sugar={fish['sugars.Total']}
+          sugar={fish['sugars.Total']} // is this really the key name? not fish.sugars.Total? If so, i believe you--the shape of the data that the API responds with seems reeeeally weird
         
         />
       </div>

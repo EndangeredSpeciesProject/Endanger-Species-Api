@@ -17,20 +17,21 @@ export default function ProfilesPage() {
     setLoading(false);
   }, []);
 
-
   return (
     <div className='friends'>
       {
-        loading ? <Spinner/> : <ul>
-          {
-            profiles.map((profile) =>
-              <Link key={profile.user_id}
-                to={`/profile-page/${profile.user_id}`}>
-                <li>{profile.email}</li>
-              </Link>  
-            )
-          }
-        </ul>
+        loading 
+          ? <Spinner/> 
+          : <ul>
+            {
+              profiles.map((profile) =>
+                <Link key={profile.user_id}
+                  to={`/profile-page/${profile.user_id}`}>
+                  <li>{profile.email}</li>
+                </Link>  
+              )
+            }
+          </ul>
       }
     </div>
   );

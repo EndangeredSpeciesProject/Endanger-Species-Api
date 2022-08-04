@@ -14,6 +14,7 @@ export default function SimpleAccordion({ fish }) {
   }
 
   function MyComponent({ prop }) {
+    // nice work figuring out the raw HTML stuff--such a weird API!
     return <div dangerouslySetInnerHTML={ createMarkup(prop) } />;//eslint-disable-line
   }
   
